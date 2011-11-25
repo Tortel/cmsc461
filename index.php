@@ -2,7 +2,7 @@
 
 require_once('include/include.php');
 
-header("Welcome");
+head("Welcome");
 
 startPost("Welcome to Mars Reality");
 ?>
