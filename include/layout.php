@@ -7,7 +7,7 @@ function header($title = 'Mars Reality'){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title><?php print $title ?></title>
+<title><?php echo $title; ?></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" />
@@ -44,7 +44,7 @@ function startPost($title = ''){
 
 ?>
 		<div class="post">
-			<h1 class="title"><?php print $title ?></h1>
+			<h1 class="title"><?php echo $title; ?></h1>
 			<div class="entry">
 <?php
 }
@@ -53,7 +53,7 @@ function endPost($date = ''){
 ?>
 			</div>
 			<div class="meta">
-				<p class="byline"><?php print $date ?></p>
+				<p class="byline"><?php echo $date; ?></p>
 				<!-- <p class="links"><a href="#" class="more">Read full article</a> <b>|</b> <a href="#" class="comments">Comments (32)</a></p> -->
 			</div>
 		</div>
@@ -94,7 +94,7 @@ function footer(){
 			</ul>
 		</div>
 	</div>
-	<p id="legal">(c) 2007 YourSite. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> and <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+	<p id="legal">(c) 2011 Mars Reality. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> and <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
 </div>
 <!-- end footer -->
 </body>
