@@ -54,7 +54,7 @@ function endPost($date = ''){
 			</div>
 			<div class="meta">
 				<p class="byline"><?php echo $date; ?></p>
-				<p class="links"><a href="#" class="more">Read full article</a> <b>|</b> <a href="#" class="comments">Comments (32)</a></p>
+				<!-- <p class="links"><a href="#" class="more">Read full article</a> <b>|</b> <a href="#" class="comments">Comments (32)</a></p> -->
 			</div>
 		</div>
 <?php
@@ -69,7 +69,7 @@ function footer(){
 
 <!-- start footer -->
 <div id="footer">
-	<div class="wrap">
+	<!--<div class="wrap">
 		<div id="fbox1" class="box2">
 			<h2><b>Lorem</b> Ipsum</h2>
 			<p>Curabitur tellus. Phasellus tellus <a href="#">turpis iaculis</a> in, faucibus lobortis, posuere in, lorem. Donec a ante. Donec neque purus, adipiscing id <a href="#">eleifend a cursus</a> vel odio. Vivamus varius justo amet porttitor iaculis, ipsum massa aliquet nulla, non elementum mi elit a mauris. In hac habitasse platea.</p>
@@ -94,7 +94,7 @@ function footer(){
 				<li><a href="#">Eget tempor eget nonummy</a></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<p id="legal">(c) 2011 Mars Reality. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> and <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
 </div>
 <!-- end footer -->
