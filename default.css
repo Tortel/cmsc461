@@ -302,8 +302,8 @@ input, textarea, select {
 /* Footer */
 
 #footer {
-	height: 400px;
-	min-height: 400px;
+	/* height: 400px;
+	min-height: 400px; */
 	padding: 130px 0 0 0;
 	background: #003448 url(images/img09.gif) repeat-x;
 }
