@@ -16,7 +16,6 @@ body {
 
 h1, h2, h3 {
 	margin: 0;
-	text-transform: lowercase;
 	font-weight: normal;
 	color: #3E3E3E;
 }
@@ -268,7 +267,6 @@ input, textarea, select {
 	padding: 3px;
 	background: #ECECEC url(images/img08.gif) repeat-x left bottom;
 	border: none;
-	text-transform: lowercase;
 	font-size: 11px;
 	color: #4F4F4F;
 }

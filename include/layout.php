@@ -63,7 +63,7 @@ function endPost($date = ''){
 function footer(){
 ?>
 	<!-- end content -->
-	<div style="clear: both;">&nbsp;</div>
+   </div>
 </div>
 
 <!-- start footer -->
