@@ -54,7 +54,7 @@ function endPost($date = ''){
 			</div>
 			<div class="meta">
 				<p class="byline"><?php echo $date; ?></p>
-				<!-- <p class="links"><a href="#" class="more">Read full article</a> <b>|</b> <a href="#" class="comments">Comments (32)</a></p> -->
+				<p class="links"><a href="#" class="more">Read full article</a> <b>|</b> <a href="#" class="comments">Comments (32)</a></p>
 			</div>
 		</div>
 <?php
@@ -64,6 +64,7 @@ function footer(){
 ?>
 	<!-- end content -->
    </div>
+   <div style="clear: both;">&nbsp;</div>
 </div>
 
 <!-- start footer -->
