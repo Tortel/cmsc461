@@ -32,7 +32,8 @@ create table Supervisor(
 
 create table Associate(
    id refrences Employee,
-   supervisor refrences Supervisor(id)
+   supervisor refrences Supervisor(id),
+   constraint check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
 );
 
 create table Client(
@@ -78,7 +79,7 @@ create table Property(
    associate refrences Associate(id),
    owner refrences Owner(id),
    constraint check_boolean check (rented in ('Y', 'N')),
-   constraint check_associate check ( count(select id from Associate as a where a.id = associate) <= 30 )
+   constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
 
 /* Duration is derived from endDate - startDate */
