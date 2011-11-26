@@ -1,7 +1,7 @@
 <?php
 
 
-function head($title = 'Mars Reality'){
+function head($title = 'Mars Realty'){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -20,12 +20,12 @@ function head($title = 'Mars Reality'){
 	<div id="header_inner" class="fluid">
 
 		<div id="logo">
-			<h1><span>Mars Reality</h1>
+			<h1><span>Mars Realty</h1>
 		</div>
 		
 		<div id="menu">
 			<ul>
-				<li><a href="/" class="active">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="#">About Me</a></li>
 				<li><a href="#">Photos</a></li>
 				<li><a href="#">Resources</a></li>
@@ -83,7 +83,7 @@ function foot(){
 </div>
 
 <div id="footer" class="fluid">
-	Copyright &copy; 2011 Mars Reality. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a>.
+	Copyright &copy; 2011 Mars Realty. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a>.
 </div>
 
 </body>

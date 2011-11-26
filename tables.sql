@@ -4,7 +4,7 @@ create table Branch(
    id int primary key,
    street varchar(250),
    city varchar(250),
-   state varchar(25),
+   state varchar(2),
    zip varchar(5),
    phone varchar(15),
    fax varchar(15),
@@ -42,7 +42,7 @@ create table Client(
    lastName varchar(100),
    street varchar(250),
    city varchar(250),
-   state varchar(25),
+   state varchar(2),
    zip varchar(5),
    phone varchar(15),
    workPhone varchar(15),
@@ -67,7 +67,7 @@ create table Property(
    id int primary key,
    street varchar(250),
    city varchar(250),
-   state varchar(25),
+   state varchar(2),
    zip varchar(5),
    type int,
    bedrooms int (3,1),
@@ -76,11 +76,18 @@ create table Property(
    rent number(*,2),
    fee number(2,5),
    rented char(1),
+   lastUpdate date,
+   maxRent number(*,2),
+   minRent number(*,2),
    associate refrences Associate(id),
    owner refrences Owner(id),
    constraint check_boolean check (rented in ('Y', 'N')),
    constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
+
+
+/* For use with leases */
+create type 
 
 /* Duration is derived from endDate - startDate */
 create table Lease(
@@ -99,7 +106,7 @@ create table Owner(
    name varchar(100),
    street varchar(250),
    city varchar(250),
-   state varchar(25),
+   state varchar(2),
    zip varchar(5),
    phone varchar(15),
    fax varchar(15),
@@ -125,9 +132,22 @@ create table Newspaper(
    name varchar(100),
    street varchar(250),
    city varchar(250),
-   state varchar(25),
+   state varchar(2),
    zip varchar(5),
    phone varchar(15),
    fax varchar(15),
    contactName varchar(100)
 );
+
+/* Adaptive rent service trigger */
+create trigger increase_rent
+   before insert on Viewing
+   begin
+      
+   end increase_rent
+
+
+
+
+
+
