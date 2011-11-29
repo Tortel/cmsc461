@@ -1,14 +1,19 @@
 <?php
 
-class Database {
-   private $username = "461";
-   private $password = "cmsc461";
+
+function connect(){
+   $username = "461";
+   $password = "cmsc461";   
    
-   function connect(){
-      return oci_connect($username, $password, 'localhost');
+   $conn = oci_connect($username, $password, "//localhost/orcl");
+   if (!$conn) {
+      $m = oci_error();
+      die($m['message']);
    }
-   
-   
+   else {
+      return $conn;
+   }
 }
+
 
 ?>
