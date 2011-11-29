@@ -5,7 +5,7 @@ function db_connect(){
    $username = "461";
    $password = "cmsc461";   
    
-   $conn = oci_connect($username, $password, "//localhost/orcl");
+   $conn = oci_connect($username, $password, "//localhost/XE");
    if (!$conn) {
       $m = oci_error();
       die($m['message']);
