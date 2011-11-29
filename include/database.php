@@ -1,7 +1,7 @@
 <?php
 
 
-function connect(){
+function db_connect(){
    $username = "461";
    $password = "cmsc461";   
    
