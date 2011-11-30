@@ -13,7 +13,7 @@ if($_POST['submit']){
    }
    
    if(!is_numeric($_POST['phone']) || !is_numeric($_POST['fax']
-         || !(strlen($_POST['phone') == 10) || !(strlen($_POST['fax']) == 10) ){
+         || !(strlen($_POST['phone']) == 10) || !(strlen($_POST['fax']) == 10) ){
       $error = true;
    }
    
