@@ -5,7 +5,7 @@ require_once('include/include.php');
 
 head('Create Branch');
 
-start_post('Create Branch');
+startPost('Create Branch');
 
 ?>
 
@@ -42,7 +42,7 @@ start_post('Create Branch');
 
 <?php
 
-end_post();
+endPost();
 
 foot();
 
