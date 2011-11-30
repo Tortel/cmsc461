@@ -2,10 +2,8 @@
 
 
 function db_connect(){
-   $username = "461";
-   $password = "cmsc461";   
    
-   $conn = oci_connect($username, $password, "//localhost/XE");
+   $conn = oci_connect('461', 'cmsc461', '//localhost/XE');
    if (!$conn) {
       $m = oci_error();
       die($m['message']);

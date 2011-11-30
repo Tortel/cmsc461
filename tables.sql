@@ -139,13 +139,7 @@ create table Newspaper(
    contactName varchar(100)
 );
 
-/* Adaptive rent service trigger */
-create trigger increase_rent
-   before insert on Viewing
-   begin
-      
-   end increase_rent
-
+/* Need a function to calculate the average popularity since a given date */
 
 
 
