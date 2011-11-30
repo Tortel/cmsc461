@@ -71,6 +71,11 @@ function endPost(){
 }
 
 function foot(){
+//Check theres no database connection left open
+if($db){
+   $db->close();  
+}
+
 ?>
 			</div>
 	

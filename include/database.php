@@ -1,7 +1,7 @@
 <?php
 
 
-function db_connect(){
+function dbConnect(){
    
    $conn = oci_connect('461', 'cmsc461', '//localhost/XE');
    if (!$conn) {

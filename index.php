@@ -4,7 +4,7 @@ require_once('include/include.php');
 
 head('Welcome');
 
-$db = db_connect();
+$db = dbConnect();
 
 startPost('Welcome to Mars Realty', 'November 25, 2011');
 ?>
