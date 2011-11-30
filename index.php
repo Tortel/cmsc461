@@ -9,6 +9,7 @@ $db = db_connect();
 startPost("Welcome to Mars Realty", "November 25, 2011");
 ?>
 <p> Welcome to Mars Realty! This will be more complete as I actually do it!</p>
+<a href="proj_queries.php">Project Queries</a>
 <?php
 endPost();
 

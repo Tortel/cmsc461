@@ -26,10 +26,10 @@ function head($title = 'Mars Realty'){
 		<div id="menu">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="#">About Me</a></li>
-				<li><a href="#">Photos</a></li>
-				<li><a href="#">Resources</a></li>
-				<li><a href="#">Contact Me</a></li>
+				<li><a href="#">New Data</a></li>
+				<li><a href="#">Something</a></li>
+				<li><a href="#">Something</a></li>
+				<li><a href="#">Something</a></li>
 			</ul>
 		</div>
 		
