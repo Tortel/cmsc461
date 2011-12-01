@@ -26,13 +26,13 @@ create table Branch(
    phone varchar2(15),
    fax varchar2(15),
    manager int,
-   foreign key manager refrences Manager(id)
+   foreign key(manager) refrences Manager(id)
 );
 
 create table Manager(
    id int,
    bonus number(*,2),
-   foreign key id refrences Employee(id)
+   foreign key (id) refrences Employee(id)
 );
 
 create table Employee(
@@ -43,19 +43,19 @@ create table Employee(
    birthday Date,
    salary number(*,2),
    branch int,
-   foreign key branch refrences Branch(id)
+   foreign key (branch) refrences Branch(id)
 );
 
 create table Supervisor(
    id int,
-   foreign key id refrences Employee(id)
+   foreign key (id) refrences Employee(id)
 );
 
 create table Associate(
    id int,
    supervisor int,
-   foreign key id refrences Employee(id),
-   foreign key supervisor refrences Supervisor(id),
+   foreign key (id) refrences Employee(id),
+   foreign key (supervisor) refrences Supervisor(id),
    constraint check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
 );
 
@@ -74,8 +74,8 @@ create table Client(
    associate int,
    registerDate Date,
    branchId int,
-   foreign key branchId refrences Branch(id),
-   foreign key associate refrences Associate(id)
+   foreign key (branchId) refrences Branch(id),
+   foreign key (associate) refrences Associate(id)
 );
 
 create table Viewing(
@@ -85,9 +85,9 @@ create table Viewing(
    propertyId int,
    viewDate date,
    comments varchar2(5000),
-   foreign key client refrences Client(id),
-   foreign key associate refrences Associate(id),
-   foreign key propertyId refrences Property(id)
+   foreign key (client) refrences Client(id),
+   foreign key (associate) refrences Associate(id),
+   foreign key (propertyId) refrences Property(id)
 );
 
 /* Might need to adjust rent, depending on adaptive rent service */
@@ -109,8 +109,8 @@ create table Property(
    minRent number(*,2),
    associate int,
    owner int,
-   foreign key associate refrences Associate(id),
-   foreign key owner refrences Owner(id),
+   foreign key (associate) refrences Associate(id),
+   foreign key (owner) refrences Owner(id),
    constraint check_boolean check (rented in ('Y', 'N')),
    constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
@@ -125,9 +125,9 @@ create table Lease(
    client int,
    property int,
    associate int,
-   foreign key client refrences Client(id),
-   foreign key property refrences Porperty(id),
-   foreign key associate refrences Associate(id)
+   foreign key (client) refrences Client(id),
+   foreign key (property) refrences Porperty(id),
+   foreign key (associate) refrences Associate(id)
 );
 
 create table Owner(
@@ -147,7 +147,7 @@ create table Business(
    id int,
    type varchar2(100),
    contactName varchar2(100),
-   foreign key id refrences Owner(id)
+   foreign key (id) refrences Owner(id)
 );
 
 create table Advertisement(
@@ -155,8 +155,8 @@ create table Advertisement(
    printDate date,
    cost number(*,2),
    newspaperId int,
-   foreign key newspaperId refrences Newspaper(id),
-   foreign key property refrences Property(id)
+   foreign key (newspaperId) refrences Newspaper(id),
+   foreign key (property) refrences Property(id)
 );
 
 create table Newspaper(
