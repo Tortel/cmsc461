@@ -111,8 +111,8 @@ create table Property(
    owner number(10),
    constraint prop_fk1 foreign key(associate) REFERENCES Associate(id),
    constraint prop_fk2 foreign key(owner) REFERENCES Owner(id),
-   constranumber(10) check_boolean check (rented in ('Y', 'N')),
-   constranumber(10) check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
+   constraint check_boolean check (rented in ('Y', 'N')),
+   constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
 
 /* Duration is derived from endDate - startDate */
