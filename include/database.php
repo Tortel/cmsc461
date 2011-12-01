@@ -34,7 +34,8 @@ function dbParse($db, $query){
  * Dies on error
  */
 function dbEscape($string){
-   return str_replace("'", "''", $string);
+   $tmp = str_replace("'", "''", $string);
+   return $tmp;
 }
 
 /**
