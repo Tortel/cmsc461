@@ -4,8 +4,6 @@ require_once('include/include.php');
 
 head('Project Queries and Reports');
 
-$db = db_connect();
-
 startPost('Project Queries and Reports');
 ?>
 <p>Pick from the following queries:</p>
