@@ -15,7 +15,7 @@ if($_POST['submit']){
    //$managet = '$_POST['manager'];
    
    //Need to check for manager too
-   if(!$street || !$city || $zip || $phone || $fax){
+   if(!$street || !$city || !$zip || !$phone || !$fax){
       $error = true;
    }
    
