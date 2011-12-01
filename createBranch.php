@@ -22,8 +22,7 @@ if($_POST['submit']){
       $db = dbConnect();
       
       //Parse the query
-      $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$_POST['street']',
-                        '$_POST['city']', '$_POST['zip']', '$_POST['phone']', '$_POST['fax'], null);"); 
+      $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$_POST['street']', '$_POST['city']', '$_POST['zip']', '$_POST['phone']', '$_POST['fax'], null);"); 
       if (!$query){
          $e = oci_error($db);
          trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
