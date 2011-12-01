@@ -208,27 +208,41 @@ alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES
 
 /*
 Needs to be a trigger:
-constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
+constraint) check_associate ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
 */
 
-create or replace trigger check_associate
-   before insert or update on associate
+
+create or replace trigger check_supervisor
+   before insert or update on Associate
    refrencing NEW as newRow
    for each row
    BEGIN
       if( newRow.supervisor != null) then
-         if( count( select a.supervisor from associate as a where a.supervisor = newRow.supervisor ) > 6) then
+         if( count( select a.supervisor from Associate as a where a.supervisor = newRow.supervisor ) > 6) then
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
          end if;
       end if;
    END;
+/
+
 
 /*
 Needs to be a trigger:
-constraint) check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
+constraint check_ check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 */
 
-
+create or replace trigger check_associate
+   before insert or update on Property
+   refrencing NEW as newRow
+   for each row
+   BEGIN
+      if( newRow.associate != null) then
+         if( count( select p.associate from Property as p where p.associate = newRow.associate ) > 30) then
+            RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
+         end if;
+      end if;
+   END;
+/
 
 
 
