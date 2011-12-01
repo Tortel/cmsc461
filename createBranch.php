@@ -10,17 +10,17 @@ if($_POST['submit']){
    $street = dbEscape($_POST['street']);
    $city = dbEscape($_POST['city']);
    $state = strtoupper($_POST['state']);
-   $zip = dbEscape($_POST['zip']);
+   $zip = $_POST['zip'];
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
-   //$managet = '$_POST['manager'];
+   //$manager = '$_POST['manager'];
    
    //Need to check for manager too
    if(!$street || !$city || !$zip || !$phone || !$fax || !$state){
       $error = true;
    }
    
-   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !(strlen($sate) == 2) ){
+   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !(strlen($sate) == 2) || !is_numeric($zip) || !(strlen($zip) == 5) ){
       $error = true;
    }
    
@@ -67,7 +67,7 @@ if($error){
       </tr>
       <tr>
          <td>State (Ex: MD):</td>
-         <td><input type="text" size="30" id="state" name="state" value="<?php echo $city ?>" /></td>
+         <td><input type="text" size="30" id="state" name="state" value="<?php echo $state ?>" /></td>
       </tr>
       <tr>
          <td>Zip:</td>
