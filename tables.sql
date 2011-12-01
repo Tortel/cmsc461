@@ -18,49 +18,49 @@ drop table Newspaper purge;
 /* Create all the tables that were going to use */
 
 create table Branch(
-   id int primary key,
+   id number(10) primary key,
    street varchar2(250),
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
    phone varchar2(15),
    fax varchar2(15),
-   manager int,
+   manager number(10),
    foreign key(manager) refrences Manager(id)
 );
 
 create table Manager(
-   id int,
+   id number(10),
    bonus number(*,2),
    foreign key (id) refrences Employee(id)
 );
 
 create table Employee(
-   id int primary key,
+   id number(10) primary key,
    firstName varchar2(100),
    lastName varchar2(100),
    sex char,
    birthday Date,
    salary number(*,2),
-   branch int,
+   branch number(10),
    foreign key (branch) refrences Branch(id)
 );
 
 create table Supervisor(
-   id int,
+   id number(10),
    foreign key (id) refrences Employee(id)
 );
 
 create table Associate(
-   id int,
-   supervisor int,
+   id number(10),
+   supervisor number(10),
    foreign key (id) refrences Employee(id),
    foreign key (supervisor) refrences Supervisor(id),
-   constraint check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
+   constranumber(10) check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
 );
 
 create table Client(
-   id int primary key,
+   id number(10) primary key,
    firstName varchar2(100),
    lastName varchar2(100),
    street varchar2(250),
@@ -69,22 +69,22 @@ create table Client(
    zip varchar2(5),
    phone varchar2(15),
    workPhone varchar2(15),
-   propertyType int,
+   propertyType number(10),
    maxRent number(*,2)
-   associate int,
+   associate number(10),
    registerDate Date,
-   branchId int,
+   branchId number(10),
    foreign key (branchId) refrences Branch(id),
    foreign key (associate) refrences Associate(id)
 );
 
 create table Viewing(
-   id int primary key,
-   client int,
-   associate int,
-   propertyId int,
+   id number(10) primary key,
+   client number(10),
+   associate number(10),
+   propertyId number(10),
    viewDate date,
-   comments varchar2(5000),
+   comments varchar2(4000),
    foreign key (client) refrences Client(id),
    foreign key (associate) refrences Associate(id),
    foreign key (propertyId) refrences Property(id)
@@ -92,13 +92,13 @@ create table Viewing(
 
 /* Might need to adjust rent, depending on adaptive rent service */
 create table Property(
-   id int primary key,
+   id number(10) primary key,
    street varchar2(250),
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
-   type int,
-   bedrooms int (3,1),
+   type number(10),
+   bedrooms number(3,1),
    bathrooms number(3,1),
    sqFoot number(*,2),
    rent number(*,2),
@@ -107,31 +107,31 @@ create table Property(
    lastUpdate date,
    maxRent number(*,2),
    minRent number(*,2),
-   associate int,
-   owner int,
+   associate number(10),
+   owner number(10),
    foreign key (associate) refrences Associate(id),
    foreign key (owner) refrences Owner(id),
-   constraint check_boolean check (rented in ('Y', 'N')),
-   constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
+   constranumber(10) check_boolean check (rented in ('Y', 'N')),
+   constranumber(10) check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
 
 /* Duration is derived from endDate - startDate */
 create table Lease(
-   id int primary key,
+   id number(10) primary key,
    rent number(*,2),
    deposit number(*,2),
    startDate date,
    endDate date,
-   client int,
-   property int,
-   associate int,
+   client number(10),
+   property number(10),
+   associate number(10),
    foreign key (client) refrences Client(id),
    foreign key (property) refrences Porperty(id),
    foreign key (associate) refrences Associate(id)
 );
 
 create table Owner(
-   id int primary key,
+   id number(10) primary key,
    name varchar2(100),
    street varchar2(250),
    city varchar2(250),
@@ -140,27 +140,27 @@ create table Owner(
    phone varchar2(15),
    fax varchar2(15),
    isBusiness char(1).
-   constraint check_boolean check (isBusiness in ('Y', 'N'))
+   constranumber(10) check_boolean check (isBusiness in ('Y', 'N'))
 );
 
 create table Business(
-   id int,
+   id number(10),
    type varchar2(100),
    contactName varchar2(100),
    foreign key (id) refrences Owner(id)
 );
 
 create table Advertisement(
-   property int,
-   printDate date,
+   property number(10),
+   prnumber(10)Date date,
    cost number(*,2),
-   newspaperId int,
+   newspaperId number(10),
    foreign key (newspaperId) refrences Newspaper(id),
    foreign key (property) refrences Property(id)
 );
 
 create table Newspaper(
-   id int primary key,
+   id number(10) primary key,
    name varchar2(100),
    street varchar2(250),
    city varchar2(250),
