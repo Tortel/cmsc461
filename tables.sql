@@ -247,19 +247,19 @@ create or replace trigger check_associate
 
 /* Grants for my DB user (cmsc461) */
 
-grant All on "LEASE" to CMSC461;
-grant All on "Branch" to CMSC461;
-grant All on "Manager" to CMSC461;
-grant All on "Employee" to CMSC461;
-grant All on "Supervisor" to CMSC461;
-grant All on "Associate" to CMSC461;
-grant All on "Client" to CMSC461;
-grant All on "Viewing" to CMSC461;
-grant All on "Property" to CMSC461;
-grant All on "Lease" to CMSC461;
-grant All on "Owner" to CMSC461;
-grant All on "Business" to CMSC461;
-grant All on "Advertisement" to CMSC461;
-grant All on "Newspaper" to CMSC461;
+grant All on LEASE to CMSC461;
+grant All on Branch to CMSC461;
+grant All on Manager to CMSC461;
+grant All on Employee to CMSC461;
+grant All on Supervisor to CMSC461;
+grant All on Associate to CMSC461;
+grant All on Client to CMSC461;
+grant All on Viewing to CMSC461;
+grant All on Property to CMSC461;
+grant All on Lease to CMSC461;
+grant All on Owner to CMSC461;
+grant All on Business to CMSC461;
+grant All on Advertisement to CMSC461;
+grant All on Newspaper to CMSC461;
 
 
