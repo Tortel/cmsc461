@@ -221,7 +221,7 @@ create or replace trigger check_associate
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
          end if;
       end if;
-   END cehck_associate;
+   END;
 
 /*
 Needs to be a trigger:
