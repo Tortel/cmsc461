@@ -21,6 +21,7 @@ alter table Business drop constraint business_fk1;
 alter table Advertisement drop constraint ad_fk1;
 alter table Advertisement drop constraint ad_fk2;
 
+/* Nuke the tables */
 drop table Branch purge;
 drop table Manager purge;
 drop table Employee purge;
@@ -72,10 +73,6 @@ create table Associate(
    id number(10) unique,
    supervisor number(10)
 );
-/*
-Needs to be a trigger:
-constraint) check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
-*/
 
 create table Client(
    id number(10) primary key,
@@ -124,10 +121,6 @@ create table Property(
    owner number(10),
    constraint boolean_prop check (rented in ('Y', 'N'))
 );
-/*
-Needs to be a trigger:
-constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
-*/
 
 /* Duration is derived from endDate - startDate */
 create table Lease(
@@ -212,6 +205,33 @@ alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFEREN
 alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id);
 
 /* Need a function to calculate the average popularity since a given date */
+
+/*
+Needs to be a trigger:
+constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
+*/
+
+create or replace trigger check_associate
+   before insert or update on associate
+   refrencing NEW as newRow
+   for each row
+   BEGIN
+      if( newRow.supervisor != null) then
+         if( count( select a.supervisor from associate as a where a.supervisor = newRow.supervisor ) > 6) then
+            RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
+         end if;
+      end if;
+   END cehck_associate;
+
+/*
+Needs to be a trigger:
+constraint) check ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
+*/
+
+
+
+
+
 
 
 
