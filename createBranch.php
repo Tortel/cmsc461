@@ -9,17 +9,18 @@ if($_POST['submit']){
    //Prep the vars
    $street = dbEscape($_POST['street']);
    $city = dbEscape($_POST['city']);
+   $state = strtoupper($_POST['state']);
    $zip = dbEscape($_POST['zip']);
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
    //$managet = '$_POST['manager'];
    
    //Need to check for manager too
-   if(!$street || !$city || !$zip || !$phone || !$fax){
+   if(!$street || !$city || !$zip || !$phone || !$fax || !$state){
       $error = true;
    }
    
-   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) ){
+   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !(strlen($sate) == 2) ){
       $error = true;
    }
    
@@ -28,10 +29,10 @@ if($_POST['submit']){
       $db = dbConnect();
       
       //Run the query
-      $query = dbExec($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax', null);"); 
-      
-      
-      
+      $query = dbExec($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$state', '$zip', '$phone', '$fax', null);"); 
+      if($query){
+         die('Success!');
+      }
    }
    
 }
@@ -63,6 +64,10 @@ if($error){
       <tr>
          <td>City:</td>
          <td><input type="text" size="30" id="city" name="city" value="<?php echo $city ?>" /></td>
+      </tr>
+      <tr>
+         <td>State (Ex: MD):</td>
+         <td><input type="text" size="30" id="state" name="state" value="<?php echo $city ?>" /></td>
       </tr>
       <tr>
          <td>Zip:</td>
