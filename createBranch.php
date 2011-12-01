@@ -7,9 +7,9 @@ require_once('include/include.php');
 if($_POST['submit']){
    
    //Prep the vars
-   $street = $_POST['street'];
-   $city = $_POST['city'];
-   $zip = $_POST['zip'];
+   $street = dbEscape($_POST['street']);
+   $city = dbEscape($_POST['city']);
+   $zip = dbEscape($_POST['zip']);
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
    //$managet = '$_POST['manager'];
@@ -27,14 +27,11 @@ if($_POST['submit']){
       //This is where the new branch is acutally created
       $db = dbConnect();
       
-      //Parse the query
+      //Run the query
+      $query = dbExec($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax', null);"); 
       
       
-      $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax', null);"); 
-      if (!$query){
-         $e = oci_error($db);
-         trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-      }
+      
    }
    
 }

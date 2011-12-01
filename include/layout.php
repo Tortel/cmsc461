@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * Displays the page header, and uses the given string as the title
+ */
 function head($title = 'Mars Realty'){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -49,6 +51,9 @@ function head($title = 'Mars Realty'){
 }
 
 
+/**
+ * Creates the header to start a content 'post'
+ */
 function startPost($title = '', $date = ''){
 
 ?>
@@ -64,16 +69,23 @@ function startPost($title = '', $date = ''){
 <?php
 }
 
+/**
+ * Closes a content 'psot'
+ */
 function endPost(){
 ?>
 				</div>
 <?php
 }
 
+/**
+ * The footer for the page layout.
+ * This also closes any leftover database connections
+ */
 function foot(){
 //Check theres no database connection left open
 if($db){
-   $db->close();  
+   oci_close($db);
 }
 
 ?>
