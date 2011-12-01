@@ -8,7 +8,7 @@ if($_POST['submit']){
    
    //Prep the vars
    $street = $_POST['street'];
-   $city = $_POST['coty'];
+   $city = $_POST['city'];
    $zip = $_POST['zip'];
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
@@ -33,6 +33,7 @@ if($_POST['submit']){
       $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax, null);"); 
       if (!$query){
          $e = oci_error($db);
+         echo "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax, null);";
          trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
       }
    }
