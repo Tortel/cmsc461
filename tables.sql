@@ -25,7 +25,7 @@ create table Branch(
    zip varchar2(5),
    phone varchar2(15),
    fax varchar2(15),
-   manager number(10) unique
+   manager number(10)
 );
 
 create table Manager(
@@ -182,7 +182,7 @@ alter table Property add constraint prop_fk1 foreign key(associate) REFERENCES A
 alter table Property add constraint prop_fk2 foreign key(owner) REFERENCES Owner(id);
 
 alter table Lease add constraint lease_fk1 foreign key(client) REFERENCES Client(id);
-alter table Lease add constraint lease_fk2 foreign key(property) REFERENCES Porperty(id);
+alter table Lease add constraint lease_fk2 foreign key(property) REFERENCES Property(id);
 alter table Lease add constraint lease_fk3 foreign key(associate) REFERENCES Associate(id);
 
 alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owner(id);
