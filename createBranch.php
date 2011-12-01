@@ -30,10 +30,9 @@ if($_POST['submit']){
       //Parse the query
       
       
-      $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax, null);"); 
+      $query = oci_parse($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax', null);"); 
       if (!$query){
          $e = oci_error($db);
-         echo "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$zip', '$phone', '$fax', null);";
          trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
       }
    }
