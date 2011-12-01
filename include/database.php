@@ -5,7 +5,7 @@
  * Dies on error.
  */
 function dbConnect(){
-   $conn = oci_connect('461', 'cmsc461', '//localhost/XE');
+   $conn = oci_connect('cmsc461', 'cmsc461', '//localhost/XE');
    if (!$conn) {
       $m = oci_error();
       die($m['message']);

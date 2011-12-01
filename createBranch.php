@@ -29,7 +29,7 @@ if($_POST['submit']){
       $db = dbConnect();
       
       //Run the query
-      $query = dbExec($db, "insert into Branch (street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$state', '$zip', '$phone', '$fax', null)"); 
+      $query = dbExec($db, "insert into Branch(street, city, state, zip, phone, fax, manager) values ('$street', '$city', '$state', '$zip', '$phone', '$fax', null)"); 
       if($query){
          die('Success!');
       }
