@@ -57,7 +57,7 @@ function dbExecute($query){
 function dbExec($db, $query){
    $toRet = dbParse($db, $query);
    
-   dbExecute($query);
+   dbExecute($toRet);
    
    return $toRet;
 }
