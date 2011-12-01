@@ -1,19 +1,25 @@
 /* Drop the tables to make sure its clean */
 
 /* First, need to clear constraints */
-alter table Branch drop constraint *;
-alter table Manager drop constraint *;
-alter table Employee drop constraint *;
-alter table Supervisor drop constraint *;
-alter table Associate drop constraint *;
-alter table Client drop constraint *;
-alter table Viewing drop constraint *;
-alter table Property drop constraint *;
-alter table Lease drop constraint *;
-alter table Owner drop constraint *;
-alter table Business drop constraint *;
-alter table Advertisement drop constraint *;
-alter table Newspaper drop constraint *;
+alter table Branch drop constraint branch_fk1;
+alter table Manager drop constraint manager_fk1;
+alter table Employee drop constraint emp_fk1;
+alter table Supervisor drop constraint super_fk1;
+alter table Associate drop constraint assoc_fk1;
+alter table Associate drop constraint assoc_fk2;
+alter table Client drop constraint client_fk1;
+alter table Client drop constraint client_fk2;
+alter table Viewing drop constraint view_fk1;
+alter table Viewing drop constraint view_fk2;
+alter table Viewing drop constraint view_fk3;
+alter table Property drop constraint prop_fk1;
+alter table Property drop constraint prop_fk2;
+alter table Lease drop constraint lease_fk1;
+alter table Lease drop constraint lease_fk2;
+alter table Lease drop constraint lease_fk3;
+alter table Business drop constraint business_fk1;
+alter table Advertisement drop constraint ad_fk1;
+alter table Advertisement drop constraint ad_fk2;
 
 drop table Branch purge;
 drop table Manager purge;
