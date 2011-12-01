@@ -16,11 +16,11 @@ if($_POST['submit']){
    //$manager = '$_POST['manager'];
    
    //Need to check for manager too
-   if(!$street || !$city || !$zip || !$phone || !$fax || !$state){
+   if(!$street || !$city || !$state || !$zip || !$phone || !$fax){
       $error = true;
    }
    
-   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !(strlen($sate) == 2) || !is_numeric($zip) || !(strlen($zip) == 5) ){
+   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !is_numeric($zip) || !(strlen($zip) == 5) ){
       $error = true;
    }
    
