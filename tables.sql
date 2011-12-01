@@ -1,3 +1,20 @@
+/* Drop the tables to make sure its clean */
+
+drop table Branch purge;
+drop table Manager purge;
+drop table Employee purge;
+drop table Supervisor purge;
+drop table Associate purge;
+drop table Client purge;
+drop table Viewing purge;
+drop table Property purge;
+drop table Lease purge;
+drop table Owner purge;
+drop table Business purge;
+drop table Advertisement purge;
+drop table Newspaper purge;
+
+
 /* Create all the tables that were going to use */
 
 create table Branch(
@@ -84,10 +101,6 @@ create table Property(
    constraint check_boolean check (rented in ('Y', 'N')),
    constraint check_associate check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
 );
-
-
-/* For use with leases */
-create type 
 
 /* Duration is derived from endDate - startDate */
 create table Lease(
