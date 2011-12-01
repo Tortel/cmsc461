@@ -236,7 +236,7 @@ create or replace trigger check_associate
    REFERENCING NEW as newRow
    for each row
    BEGIN
-      if( 'NEW.associate' is not nul ) then
+      if( 'NEW.associate' is not null ) then
          if( 'count( select Property.associate into x from Property where Property.associate = NEW.associate )' > 30) then
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
