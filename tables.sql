@@ -214,7 +214,7 @@ constraint) check_associate ( count(select s.id from Supervisor as s where s.id 
 
 create or replace trigger check_supervisor
    before insert or update on Associate
-   refrencing NEW as newRow
+   REFERENCING NEW as newRow
    for each row
    BEGIN
       if( newRow.supervisor != null) then
@@ -233,7 +233,7 @@ constraint check_ check ( count(select a.id from Associate as a where a.id = ass
 
 create or replace trigger check_associate
    before insert or update on Property
-   refrencing NEW as newRow
+   REFERENCING NEW as newRow
    for each row
    BEGIN
       if( newRow.associate != null) then
