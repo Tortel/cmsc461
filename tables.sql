@@ -218,7 +218,7 @@ create or replace trigger check_supervisor
    for each row
    BEGIN
       if( newRow.supervisor != null) then
-         if( count( select Associate.supervisor from Associate where Associate.supervisor = newRow.supervisor ) > 6) then
+         if( count( select Associate.supervisor from Associate into assoc where Associate.supervisor = newRow.supervisor ) > 6) then
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
          end if;
       end if;
@@ -237,7 +237,7 @@ create or replace trigger check_associate
    for each row
    BEGIN
       if( newRow.associate != null) then
-         if( count( select Property.associate from Property where Property.associate = newRow.associate ) > 30) then
+         if( count( select Property.associate from Property into prop where Property.associate = newRow.associate ) > 30) then
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
       end if;
