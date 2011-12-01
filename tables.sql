@@ -1,5 +1,20 @@
 /* Drop the tables to make sure its clean */
 
+/* First, need to clear constraints */
+alter table Branch drop constraint *;
+alter table Manager drop constraint *;
+alter table Employee drop constraint *;
+alter table Supervisor drop constraint *;
+alter table Associate drop constraint *;
+alter table Client drop constraint *;
+alter table Viewing drop constraint *;
+alter table Property drop constraint *;
+alter table Lease drop constraint *;
+alter table Owner drop constraint *;
+alter table Business drop constraint *;
+alter table Advertisement drop constraint *;
+alter table Newspaper drop constraint *;
+
 drop table Branch purge;
 drop table Manager purge;
 drop table Employee purge;
