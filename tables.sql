@@ -217,8 +217,10 @@ create or replace trigger check_supervisor
    REFERENCING NEW as newRow
    for each row
    BEGIN
-      if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = NEW.supervisor )' > 6 ) then
-         RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
+      if( 'NEW.supervisor is not null' ) then
+         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = NEW.supervisor )' > 6 ) then
+            RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
+         end if;
       end if;
    END;
 /
@@ -234,8 +236,10 @@ create or replace trigger check_associate
    REFERENCING NEW as newRow
    for each row
    BEGIN
-      if( 'count( select Property.associate into x from Property where Property.associate = NEW.associate )' > 30) then
-         RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
+      if( 'NEW.associate is not null' ) then
+         if( 'count( select Property.associate into x from Property where Property.associate = NEW.associate )' > 30) then
+            RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
+         end if;
       end if;
    END;
 /
