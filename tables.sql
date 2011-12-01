@@ -25,11 +25,11 @@ create table Branch(
    zip varchar2(5),
    phone varchar2(15),
    fax varchar2(15),
-   manager number(10)
+   manager number(10) unique
 );
 
 create table Manager(
-   id number(10),
+   id number(10) unique,
    bonus number(*,2)
 );
 
@@ -44,11 +44,11 @@ create table Employee(
 );
 
 create table Supervisor(
-   id number(10)
+   id number(10) unique
 );
 
 create table Associate(
-   id number(10),
+   id number(10) unique,
    supervisor number(10)
 );
 /*
@@ -67,7 +67,7 @@ create table Client(
    phone varchar2(15),
    workPhone varchar2(15),
    propertyType number(10),
-   maxRent number(*,2)
+   maxRent number(*,2),
    associate number(10),
    registerDate Date,
    branchId number(10)
@@ -101,7 +101,7 @@ create table Property(
    minRent number(*,2),
    associate number(10),
    owner number(10),
-   constraint check_boolean check (rented in ('Y', 'N'))
+   constraint boolean_prop check (rented in ('Y', 'N'))
 );
 /*
 Needs to be a trigger:
@@ -130,7 +130,7 @@ create table Owner(
    phone varchar2(15),
    fax varchar2(15),
    isBusiness char(1),
-   constraint check_boolean check (isBusiness in ('Y', 'N'))
+   constraint boolean_owner check (isBusiness in ('Y', 'N'))
 );
 
 create table Business(
