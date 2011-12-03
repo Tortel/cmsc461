@@ -75,7 +75,7 @@ function dbFetchRow($query){
  * Date needs to be in dd.mm.yyyy
  * (Ex 12.10.1990)
  */
-function dbDate($date)
+function dbDate($date){
    return "TO_DATE('$date', 'DD.MM.YYYY')";
 }
 
