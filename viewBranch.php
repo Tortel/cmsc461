@@ -18,7 +18,7 @@ if(!$branch || !is_nueric($branch)){
    <form action="viewBranch.php" method="get">
       <select name="id" id="id">
       <?php
-         while($row = dbFetchRow($branchesQuery){
+         while( ($row = dbFetchRow($branchesQuery)) ){
             echo '<option value="'.$row['id'].'">'.$row['id'].' - '.$row['city'].', '.$row['state'].'</option>';
          }
       ?>

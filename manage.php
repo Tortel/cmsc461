@@ -9,6 +9,12 @@ startPost('Manage Data');
 <p>Pick from the following options:</p>
 
 <br>
+<h4>View Existing</h4>
+<ul>
+   <li><a href="viewBranch.php">View Branch Details</a></li>
+</ul>
+
+<br>
 <h4>Create New</h4>
 <ul>
    <li><a href="createBranch.php">Create a new branch</a></li>
