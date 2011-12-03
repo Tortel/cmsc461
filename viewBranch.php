@@ -37,7 +37,7 @@ if(!$branch || !is_numeric($branch)){
 } else {
    //Get the branch details
    $branchQuery = dbExec($db, "select street, city, state, zip, phone, fax, firstName, lastName, begin, bonus".
-      " from Branch, Manager, Employee where Branch.id = $branch and Manager.id = manager amd Employee.id = manager");
+      " from Branch, Manager, Employee where Branch.id = $branch and Manager.id = manager and Employee.id = manager");
    
    $row = dbFetchRow($branchQuery);
    

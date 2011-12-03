@@ -70,5 +70,14 @@ function dbFetchRow($query){
    return oci_fetch_array($query, OCI_BOTH+OCI_RETURN_NULLS);
 }
 
+/**
+ * Makes an insert date  statement.
+ * Date needs to be in dd.mm.yyyy
+ * (Ex 12.10.1990)
+ */
+function dbDate($date)
+   return "TO_DATE('$date', 'DD.MM.YYYY')";
+}
+
 
 ?>
