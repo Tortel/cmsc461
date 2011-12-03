@@ -52,6 +52,7 @@ create table Branch(
 
 create table Manager(
    id number(10) unique,
+   begin date,
    bonus number(*,2)
 );
 
