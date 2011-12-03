@@ -8,7 +8,7 @@ $branch = $_GET['id'];
 
 $db = dbConnect();
 
-if(!$branch || !is_nueric($branch)){
+if(!$branch || !is_numeric($branch)){
    //Branch not selected, show option to select one
    
    $branchesQuery = dbExec($db, 'select id, city, state from Branch');
@@ -25,7 +25,7 @@ if(!$branch || !is_nueric($branch)){
       </select>
       
       <br>
-      <input type="submit" value="submit">
+      <input type="submit" value="Submit">
    </form>
    <?php
    
@@ -36,18 +36,46 @@ if(!$branch || !is_nueric($branch)){
    exit();
 } else {
    //Get the branch details
-   $branchQuery = dbExec($db, "select street, city, state, zip, phone, fax, begin, bonus, firstName, lastName".
+   $branchQuery = dbExec($db, "select street, city, state, zip, phone, fax, firstName, lastName, begin, bonus".
       " from Branch, Manager, Employee where Branch.id = $branch and Manager.id = manager amd Employee.id = manager");
    
    $row = dbFetchRow($branchQuery);
    
-   startPost('Branch Details');
+   startPost('Branch '.$branch.' Details');
    ?>
    
-   Details here
-   
-   
-   
+   <table border="0">
+      <tr>
+         <td>Address:</td>
+         <td>
+            <?php
+               echo $row[0].'<br>';
+               echo $row[1].', '.$row[2].'<br>';
+               echo $row[3];
+            ?>
+         </td>
+      </tr>
+      <tr>
+         <td>Phone Number:</td>
+         <td><?php echo $row[4]; ?></td>
+      </tr>
+      <tr>
+         <td>Fax Number:</td>
+         <td><?php echo $row[5]; ?></td>
+      </tr>
+      <tr>
+         <td>Manager Name:</td>
+         <td><?php echo $row[6].' '.$row[7]; ?></td>
+      </tr>
+      <tr>
+         <td>Start Date:</td>
+         <td><?php echo $row[8]; ?></td>
+      </tr>
+      <tr>
+         <td>Manager's Bonus:</td>
+         <td><?php echo $row[9]; ?></td>
+      </tr>
+   </table>
    <?php
 
    endPost();
