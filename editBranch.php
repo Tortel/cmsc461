@@ -15,7 +15,7 @@ if($_POST['submit']){
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
    $manager = $_POST['manager'];
-   $id = $_POST['branch'];
+   $id = $_POST['id'];
    
    //Manager is always set
    if(!$street || !$city || !$state || !$zip || !$phone || !$fax){
