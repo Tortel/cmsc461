@@ -65,10 +65,10 @@ if(!$branch || !is_numeric($branch)){
       </tr>
       <tr>
          <td>Manager Name:</td>
-         <td><a href="#"><?php echo $row[6].' '.$row[7]; ?></a></td>
+         <td><a href="viewEmployee.php?id=<?php echo $row[10]; ?>"><?php echo $row[6].' '.$row[7]; ?></a></td>
       </tr>
       <tr>
-         <td>Start Date:</td>
+         <td>Manager Start Date:</td>
          <td><?php echo $row[8]; ?></td>
       </tr>
       <tr>

@@ -60,8 +60,12 @@ create table Employee(
    id number(10) primary key,
    firstName varchar2(100),
    lastName varchar2(100),
-   sex char,
+   sex varchar2(1),
    birthday Date,
+   street varchar2(250),
+   city varchar2(250),
+   state varchar2(2),
+   zip varchar2(5),
    salary number(*,2),
    branch number(10)
 );
