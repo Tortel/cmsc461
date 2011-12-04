@@ -18,7 +18,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
    <form action="viewEmployee.php" method="get">
       <select name="id" id="id">
       <?php
-         while( ($row = dbFetchRow(employeeQuery)) ){
+         while( ($row = dbFetchRow($employeeQuery)) ){
             echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].' '.$row[2].'</option>';
          }
       ?>
