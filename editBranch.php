@@ -28,7 +28,7 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      $query = dbExec($db, "update Branch set street = '$street', city = '$city', state = '$state', zip = '$zip', phone = '$phone', fax = '$fax', manager = $manager where id = $id"); 
+      $query = dbExec($db, "update Branch set street = '$street', city = '$city', state = '$state', zip = '$zip', phone = '$phone', fax = '$fax', manager = '$manager' where id = $id"); 
       
       header('Location: viewBranch.php');
    }

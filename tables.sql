@@ -45,8 +45,8 @@ create table Branch(
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
-   phone varchar2(15),
-   fax varchar2(15),
+   phone varchar2(10),
+   fax varchar2(10),
    manager number(10)
 );
 
@@ -83,8 +83,8 @@ create table Client(
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
-   phone varchar2(15),
-   workPhone varchar2(15),
+   phone varchar2(10),
+   workphone varchar2(10),
    propertyType number(10),
    maxRent number(*,2),
    associate number(10),
@@ -142,8 +142,8 @@ create table Owner(
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
-   phone varchar2(15),
-   fax varchar2(15),
+   phone varchar2(10),
+   fax varchar2(10),
    isBusiness char(1),
    constraint boolean_owner check (isBusiness in ('Y', 'N'))
 );
@@ -168,8 +168,8 @@ create table Newspaper(
    city varchar2(250),
    state varchar2(2),
    zip varchar2(5),
-   phone varchar2(15),
-   fax varchar2(15),
+   phone varchar2(10),
+   fax varchar2(10),
    contactName varchar2(100)
 );
 
