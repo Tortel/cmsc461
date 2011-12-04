@@ -16,12 +16,12 @@ if($_POST['submit']){
    $fax = $_POST['fax'];
    $manager = $_POST['manager'];
    
-   //Need to check for manager too
+   //Manager is always set
    if(!$street || !$city || !$state || !$zip || !$phone || !$fax){
       $error = true;
    }
    
-   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !is_numeric($zip) || !(strlen($zip) == 5) ){
+   if(!is_numeric($phone) || !is_numeric($fax) || !(strlen($phone) == 10) || !(strlen($fax) == 10) || !is_numeric($zip) || !(strlen($zip) == 5) || !(strlen($state) == 2) ){
       $error = true;
    }
    
@@ -30,9 +30,8 @@ if($_POST['submit']){
 
       //Run the query
       $query = dbExec($db, "insert into Branch (id, street, city, state, zip, phone, fax, manager) values (key_branch.nextval, '$street', '$city', '$state', '$zip', '$phone', '$fax', $manager)"); 
-      if($query){
-         die('Success!');
-      }
+      
+      header('Location: viewBranch.php');
    }
    
 }
