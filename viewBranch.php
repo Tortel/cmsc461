@@ -36,7 +36,7 @@ if(!$branch || !is_numeric($branch)){
    exit();
 } else {
    //Get the branch details
-   $branchQuery = dbExec($db, "select street, city, state, zip, phone, fax, firstName, lastName, begin, bonus".
+   $branchQuery = dbExec($db, "select street, city, state, zip, phone, fax, firstName, lastName, begin, bonus, Manager.id".
       " from Branch, Manager, Employee where Branch.id = $branch and Manager.id = manager and Employee.id = manager");
    
    $row = dbFetchRow($branchQuery);
@@ -46,7 +46,7 @@ if(!$branch || !is_numeric($branch)){
    
    <table border="0">
       <tr>
-         <td>Address:</td>
+         <td align="top">Address:</td>
          <td>
             <?php
                echo $row[0].'<br>';
@@ -65,7 +65,7 @@ if(!$branch || !is_numeric($branch)){
       </tr>
       <tr>
          <td>Manager Name:</td>
-         <td><?php echo $row[6].' '.$row[7]; ?></td>
+         <td><a href="#"><?php echo $row[6].' '.$row[7]; ?></a></td>
       </tr>
       <tr>
          <td>Start Date:</td>
@@ -73,7 +73,7 @@ if(!$branch || !is_numeric($branch)){
       </tr>
       <tr>
          <td>Manager's Bonus:</td>
-         <td><?php echo $row[9]; ?></td>
+         <td>$<?php echo $row[9]; ?></td>
       </tr>
    </table>
    <?php

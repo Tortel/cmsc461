@@ -2,6 +2,7 @@
 
 require_once('include/include.php');
 
+$db = dbConnect();
 
 //If they submitted the form
 if($_POST['submit']){
@@ -13,7 +14,7 @@ if($_POST['submit']){
    $zip = $_POST['zip'];
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
-   //$manager = '$_POST['manager'];
+   $manager = $_POST['manager'];
    
    //Need to check for manager too
    if(!$street || !$city || !$state || !$zip || !$phone || !$fax){
@@ -26,10 +27,9 @@ if($_POST['submit']){
    
    if(!$error){
       //This is where the new branch is acutally created
-      $db = dbConnect();
-      
+
       //Run the query
-      $query = dbExec($db, "insert into Branch (id, street, city, state, zip, phone, fax, manager) values (key_branch.nextval, '$street', '$city', '$state', '$zip', '$phone', '$fax', null)"); 
+      $query = dbExec($db, "insert into Branch (id, street, city, state, zip, phone, fax, manager) values (key_branch.nextval, '$street', '$city', '$state', '$zip', '$phone', '$fax', $manager)"); 
       if($query){
          die('Success!');
       }
@@ -82,7 +82,17 @@ if($error){
          <td><input type="text" size="30" id="fax" name="fax" value="<?php echo $fax ?>" /></td>
       </tr>
          <td>Manager:</td>
-         <td>TODO: Pull down list of employees</td>
+         <td>
+            <select name="manager" id="manager">
+            <?php
+               $managers = dbExec($db, 'select Employee.id firstname, lastname from employee where Employee.id not in'.
+                  ' (select Associate.id from associate union select Supervisor.id from supervisor)');
+               while( ($row = dbFetchRow($managers)) ){
+                  echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
+               }
+            ?>
+            </select>
+         </td>
       </tr>
       <tr>
          <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
