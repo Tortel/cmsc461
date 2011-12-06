@@ -89,7 +89,7 @@ if($error){
             <?php
                //Might want this to be a trigger too
                $managers = dbExec($db, 'select Employee.id, firstname, lastname from employee where Employee.id not in'.
-                  ' (select Associate.id from associate union select Supervisor.id from supervisor)');
+                  ' (select Associate.id from associate union select Supervisor.id from supervisor union select Manager.id from Manager)');
                while( ($row = dbFetchRow($managers)) ){
                   echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
                }

@@ -179,7 +179,7 @@ create table Newspaper(
 
 
 /* Add in all the foreign key stuff, because it doesnt work until the tables are there */
-alter table Branch add constraint branch_fk1 foreign key(manager) REFERENCES Manager(id) on delete CASCADE;
+alter table Branch add constraint branch_fk1 foreign key(manager) REFERENCES Manager(id);
 
 alter table Manager add constraint manager_fk1 foreign key(id) REFERENCES Employee(id);
 
@@ -249,6 +249,13 @@ create or replace trigger check_associate
    END;
 /
 
+create or replace trigger delete_manager
+   after delete on Branch
+   for each row
+   BEGIN
+      delete from Manager where Manager.id = :OLD.manager;
+   END;
+/
 
 /* Grants for my DB user (cmsc461) */
 

@@ -11,7 +11,7 @@ if($_POST['submit']){
    if( is_numeric($id) ){
       
       //Should auto-fail if there is any foreign keys dependent on that employee
-      //Cascades delete to manager
+      //Manager is removed from manager table automatically
       dbExec($db, "delete from Branch where id = $id");
       
       //Redirect them
