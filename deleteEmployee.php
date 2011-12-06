@@ -46,6 +46,7 @@ if($count > 1){
          <td>
             <select id="id" name="id">
                <?php
+               echo count($employees);
                for($i = 0; $i <= (count($employees) / 3); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
                }
