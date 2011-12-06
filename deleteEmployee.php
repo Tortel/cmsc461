@@ -69,6 +69,10 @@ if($count > 1){
    </form>
    <?php
 } else {
+
+head('Delete Employee');
+
+startPost('Error');
 ?>
 <p>You must have at least one user.</p>
 <?php
