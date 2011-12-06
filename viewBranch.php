@@ -8,7 +8,7 @@ $branch = $_GET['id'];
 
 $db = dbConnect();
 
-if(!$branch || !is_numeric($branch)){
+if((!$branch && $branch != 0) || !is_numeric($branch)){
    //Branch not selected, show option to select one
    
    $branchesQuery = dbExec($db, 'select id, city, state from Branch');
