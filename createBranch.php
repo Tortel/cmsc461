@@ -29,7 +29,7 @@ if($_POST['submit']){
       //This is where the new branch is acutally created
       
       //Need to add the manager to the Manager table
-      dbExec($db, "insert into Manager (id, date, bonus) values ($manager, CURRENT_DATE, 5000)");
+      dbExec($db, "insert into Manager (id, begin, bonus) values ($manager, CURRENT_DATE, 5000)");
       
       //Run the query
       $query = dbExec($db, "insert into Branch (id, street, city, state, zip, phone, fax, manager) values (key_branch.nextval, '$street', '$city', '$state', '$zip', '$phone', '$fax', $manager)"); 
