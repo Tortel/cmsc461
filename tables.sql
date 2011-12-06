@@ -179,7 +179,7 @@ create table Newspaper(
 
 
 /* Add in all the foreign key stuff, because it doesnt work until the tables are there */
-alter table Branch add constraint branch_fk1 foreign key(manager) REFERENCES Manager(id);
+alter table Branch add constraint branch_fk1 foreign key(manager) REFERENCES Manager(id) on delete CASCADE;
 
 alter table Manager add constraint manager_fk1 foreign key(id) REFERENCES Employee(id);
 
@@ -204,10 +204,10 @@ alter table Lease add constraint lease_fk1 foreign key(client) REFERENCES Client
 alter table Lease add constraint lease_fk2 foreign key(property) REFERENCES Property(id);
 alter table Lease add constraint lease_fk3 foreign key(associate) REFERENCES Associate(id);
 
-alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owner(id);
+alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owner(id) on delete CASCADE;
 
-alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFERENCES Newspaper(id);
-alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id);
+alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFERENCES Newspaper(id) on delete CASCADE;
+alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id) on delete CASCADE;
 
 /* Need a function to calculate the average popularity since a given date */
 
