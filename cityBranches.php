@@ -16,7 +16,7 @@ if(!strlen($city)){
    startPost('Select City');
    ?>
    <form action="cityBranches.php" method="get">
-      <select name="id" id="id">
+      <select name="city" id="city">
       <?php
          while( ($row = dbFetchRow($cityQuery)) ){
             echo '<option value="'.$row[0].'">'.$row[0].'</option>';
@@ -45,7 +45,7 @@ if(!strlen($city)){
    
    for($i = 0; $i < count($array); $i++){
       ?>
-      <p>Branch <?php echo $array[$i][11]; ?>
+      <b>Branch <?php echo $array[$i][11]; ?></b>
       <table border="0">
          <tr>
             <td align="top">Address:</td>
@@ -78,6 +78,7 @@ if(!strlen($city)){
             <td>$<?php echo $array[$i][9]; ?></td>
          </tr>
       </table>
+      <br><br>
       <?php
    }
    
