@@ -18,6 +18,8 @@ if($_POST['submit']){
    }
 }
 
+head('Delete User');
+
 startPost('Delete User');
 
 $countQuery = dbExec($db, 'select count(id) from Employee');
@@ -70,9 +72,6 @@ if($count > 1){
    <?php
 } else {
 
-head('Delete Employee');
-
-startPost('Error');
 ?>
 <p>You must have at least one user.</p>
 <?php
