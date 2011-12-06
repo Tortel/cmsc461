@@ -2,6 +2,8 @@
 
 require_once('include/include.php');
 
+$db = dbConnect();
+
 //If they submitted the form
 if($_POST['submit']){
    
@@ -40,8 +42,6 @@ if($_POST['submit']){
 head('Edit Employee');
 
 $id = $_GET['id'];
-
-$db = dbConnect();
 
 if( (!$id && $id != 0) || !is_numeric($id)){
    //Employee not selected, show option to select one
