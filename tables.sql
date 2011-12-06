@@ -80,7 +80,7 @@ create table Employee(
 
 /* And a default employee */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (0, 'Default', 'Employee', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', 100, 0);
+   (0, 'Default', 'Employee', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 100, 0);
 
 create table Supervisor(
    id number(10) unique
@@ -289,41 +289,49 @@ grant All on Newspaper to CMSC461;
 */
 
 /* No freaking auto-increment primary key? Are you kidding? */
+drop sequence key_branch;
 CREATE SEQUENCE key_branch
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_employee;
 CREATE SEQUENCE key_employee
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_client;
 CREATE SEQUENCE key_client
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_viewing;
 CREATE SEQUENCE key_viewing
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_property;
 CREATE SEQUENCE key_property
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_lease;
 CREATE SEQUENCE key_lease
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_owner;
 CREATE SEQUENCE key_owner
 MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_newspaper;
 CREATE SEQUENCE key_newspaper
 MINVALUE 1
 START WITH 1
