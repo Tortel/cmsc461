@@ -46,8 +46,7 @@ if($count > 1){
          <td>
             <select id="id" name="id">
                <?php
-               echo count($employees);
-               for($i = 0; $i <= (count($employees) / 3); $i++){
+               for($i = 0; $i < count($employees); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
                }
                ?>
@@ -59,7 +58,7 @@ if($count > 1){
          <td>
             <select id="tansfer" name="fransfer">
                <?php
-               for($i = 0; $i <= (count($employees) / 3); $i++){
+               for($i = 0; $i < count($employees); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
                }
                ?>
