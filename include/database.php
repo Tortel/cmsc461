@@ -23,6 +23,8 @@ function dbParse($db, $query){
    $toRet = oci_parse($db, $query); 
    if (!$toRet){
       $e = oci_error($db);
+      echo '<pre>';
+      echo $query;
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
    }
    
@@ -46,6 +48,7 @@ function dbExecute($query){
    $r = oci_execute($query);
    if(!$r){
       $e = oci_error($query);
+      echo '<pre>';
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
    }
 }
