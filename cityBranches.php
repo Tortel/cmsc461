@@ -43,7 +43,7 @@ if(!$city){
    
    startPost('Branches in '.$city);
    
-   for($i = 0; $i < count($array; $i++){
+   for($i = 0; $i < count($array); $i++){
       ?>
       <p>Branch <?php echo $array[$i][11]; ?>
       <table border="0">
