@@ -84,7 +84,7 @@ function dbDate($date){
  * Fetches all the rows from a query, returns a 2-dimensional array.
  */
 function dbFetchAll($query){
-   $array[];
+   $array = [];
    oci_fetch_all($query, $array, 0, -1, OCI_FETCHSTATEMENT_BY_ROW+OCI_NUM);
    return $array;
 }
