@@ -2,8 +2,6 @@
 
 require_once('include/include.php');
 
-$db = dbConnect();
-
 //If they submitted the form
 if($_POST['submit']){
    
@@ -29,8 +27,8 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      $query = dbExec($db, "update Employee set (street, city, state, zip, firstname, lastName, birthday, sex, salary, branch) = ".
-         "('$street', '$city', '$state', '$zip', '$firstName', '$lastName', '$birthday', '$sex', $salary, $branch) where id = $id"); 
+      $query = dbExec($db, "update Employee set street = '$street', city = '$city', state = '$state', zip = '$zip', firstname = '$firstName',".
+      " lastName = '$lastName', birthday = '$birthday', sex = '$sex', salary = $salary, branch = $branch where id = $id;"); 
       
       header('Location: viewEmployee.php');
    }
@@ -42,6 +40,8 @@ if($_POST['submit']){
 head('Edit Employee');
 
 $id = $_GET['id'];
+
+$db = dbConnect();
 
 if( (!$id && $id != 0) || !is_numeric($id)){
    //Employee not selected, show option to select one
