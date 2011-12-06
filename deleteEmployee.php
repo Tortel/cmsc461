@@ -11,7 +11,8 @@ if($_POST['submit']){
    $transfer = $_POST['transfer'];
    
    //If they are both numbers, and different, delete
-   if(is_numeric($id) && is_numeric($transfer) && ($id != $transfer) ){
+   if($id != $transfer){
+      
       
       //Set all foreign keys to $transfer, and delete $id
       
