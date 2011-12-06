@@ -19,7 +19,7 @@ startPost('Manage Data');
 <h4>Create New</h4>
 <ul>
    <li><a href="createBranch.php">Create a new branch</a></li>
-   <li><a href="createEmployee.php">View Employee Details</a></li>
+   <li><a href="createEmployee.php">Create Employee</a></li>
 </ul>
 
 <br>

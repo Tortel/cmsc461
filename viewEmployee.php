@@ -9,7 +9,7 @@ $id = $_GET['id'];
 $db = dbConnect();
 
 if( (!$id && $id != 0) || !is_numeric($id)){
-   //Branch not selected, show option to select one
+   //Employee not selected, show option to select one
    
    $employeeQuery = dbExec($db, 'select id, firstname, lastname from Employee');
    
