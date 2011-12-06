@@ -13,7 +13,7 @@ if(!strlen($city)){
    
    $cityQuery = dbExec($db, 'select unique(city) from Branch');
    
-   startPost('Select City');
+   startPost('Available Cities');
    ?>
    <form action="cityBranches.php" method="get">
       <select name="city" id="city">
