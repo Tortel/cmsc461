@@ -50,11 +50,19 @@ create table Branch(
    manager number(10)
 );
 
+/* Add a default branch */
+insert into Branch (id, street, city, state, zip, phone, fax, manager) values
+   (0, '123 Main Street', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 0);
+
+
 create table Manager(
    id number(10) unique,
    begin date,
    bonus number(*,2)
 );
+
+/* Add a default manager */
+insert into Manager (id, begin, bonus) values (0, CURRENT_DATE, 100);
 
 create table Employee(
    id number(10) primary key,
@@ -69,6 +77,10 @@ create table Employee(
    salary number(*,2),
    branch number(10)
 );
+
+/* And a default employee */
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (0, 'Default', 'Employee', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', 100, 0);
 
 create table Supervisor(
    id number(10) unique
