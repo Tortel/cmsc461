@@ -8,7 +8,7 @@ $city = $_GET['city'];
 
 $db = dbConnect();
 
-if(!$city){
+if(!strlen($city)){
    //Branch not selected, show option to select one
    
    $cityQuery = dbExec($db, 'select unique(city) from Branch');
