@@ -8,14 +8,10 @@ if($_POST['submit']){
    
    $id = $_POST['id'];
    
-   $transfer = $_POST['transfer'];
-   
-   //If they are both numbers, and different, delete
-   if($id != $transfer){
+   if( is_numeric($id) ){
       
-      
-      //Set all foreign keys to $transfer, and delete $id
-      
+      //Should auto-fail if there is any foreign keys dependent on that employee
+      dbExec("delete from Employee where id = $id");
       
       //Redirect them
       header('Location: viewEmployee.php');
@@ -47,18 +43,6 @@ if($count > 1){
          <td>Delete Employee:</td>
          <td>
             <select id="id" name="id">
-               <?php
-               for($i = 0; $i < count($employees); $i++){
-                  echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
-               }
-               ?>
-            </select>
-         </td>
-      </tr>
-      <tr>
-         <td>Transfer records to:</td>
-         <td>
-            <select id="transfer" name="transfer">
                <?php
                for($i = 0; $i < count($employees); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
