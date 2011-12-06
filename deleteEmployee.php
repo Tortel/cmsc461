@@ -41,7 +41,7 @@ if($count > 1){
    
    ?>
    <form action="deleteEmployee.php" method="post">
-      <input type="hidden" name="sumbit" id="submit" value="1">
+      <input type="hidden" name="submit" id="submit" value="1">
       <table border="0">
       <tr>
          <td>Delete Employee:</td>
