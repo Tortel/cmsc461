@@ -29,9 +29,7 @@ function head($title = 'Mars Realty'){
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="manage.php">Manage Data</a></li>
-				<li><a href="#">Something</a></li>
-				<li><a href="#">Something</a></li>
-				<li><a href="#">Something</a></li>
+				<li><a href="projQueries.php">Project Queries</a></li>
 			</ul>
 		</div>
 		
