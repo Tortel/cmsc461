@@ -19,7 +19,6 @@ if($_POST['submit']){
    $salary = $_POST['salary'];
    $branch = $_POST['branch'];
    
-   //Manager is always set
    if(!$street || !$city || !$state || !$zip || !$salary || !$birthday || !$firstName || !$lastName){
       $error = true;
    }

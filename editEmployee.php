@@ -2,6 +2,41 @@
 
 require_once('include/include.php');
 
+//If they submitted the form
+if($_POST['submit']){
+   
+   //Prep the vars
+   $street = dbEscape($_POST['street']);
+   $city = dbEscape($_POST['city']);
+   $firstName = dbEscape($_POST['firstName']);
+   $lastName = dbEscape($_POST['lastName']);
+   $sex = $_POST['sex'];
+   $birthday = dbEscape($_POST['birthday']);
+   $state = strtoupper($_POST['state']);
+   $zip = $_POST['zip'];
+   $salary = $_POST['salary'];
+   $branch = $_POST['branch'];
+   
+   if(!$street || !$city || !$state || !$zip || !$salary || !$birthday || !$firstName || !$lastName){
+      $error = true;
+   }
+   
+   if(!is_numeric($salary) || !is_numeric($zip) || !(strlen($zip) == 5) || !(strlen($state) == 2) ){
+      $error = true;
+   }
+   
+   if(!$error){
+      //Run the query
+      $query = dbExec($db, "update Employee set  street = '$street', city = '$city', state = '$state', zip = '$zip', firstname = '$firstName',".
+      " lastName = '$lastName', birthday = '$birthday', sex = '$sex', salary = $salary, branch = $branch where id = $id;"); 
+      
+      header('Location: viewEmployee.php');
+   }
+   
+}
+
+
+
 head('Edit Employee');
 
 $id = $_GET['id'];
@@ -15,7 +50,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
    
    startPost('Select Employee');
    ?>
-   <form action="viewEmployee.php" method="get">
+   <form action="editEmployee.php" method="get">
       <select name="id" id="id">
       <?php
          while( ($row = dbFetchRow($employeeQuery)) ){
@@ -48,7 +83,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
 
 ?>
 
-<form action="createEmployee.php" method="post">
+<form action="editEmployee.php" method="post">
    <input type="hidden" value="1" id="submit" name="submit" />
    <input type="hidden" value="<?php echo $id; ?>" id="id" name="id" />
    <table border="0">
@@ -77,7 +112,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
          </td>
       </tr>
       <tr>
-         <td>Birthday (Ex: 12.10.1990):</td>
+         <td>Birthday (Ex: 10-DEC-90):</td>
          <td><input type="text" size="30" id="birthday" name="birthday" value="<?php echo $row[3]; ?>" /></td>
       </tr>
       <tr>
