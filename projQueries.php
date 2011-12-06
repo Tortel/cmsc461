@@ -8,7 +8,7 @@ startPost('Project Queries and Reports');
 ?>
 <p>Pick from the following queries:</p>
 <ul>
-   <li><a href="#">List the details of branches in a given city.</a></li>
+   <li><a href="cityBranches.php">List the details of branches in a given city.</a></li>
    <li><a href="#">Find the total number of branches in a given state.</a></li>
    <li><a href="#">List name, position, and salary of all employees at a given branch, ordered by name.</a></li>
    <li><a href="#">Find the total number of employees and the sum of their salaries.</a></li>
