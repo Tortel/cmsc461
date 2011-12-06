@@ -29,8 +29,8 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      $query = dbExec($db, "update Employee set  street = '$street', city = '$city', state = '$state', zip = '$zip', firstname = '$firstName',".
-      " lastName = '$lastName', birthday = '$birthday', sex = '$sex', salary = $salary, branch = $branch where id = $id;"); 
+      $query = dbExec($db, "update Employee set (street, city, state, zip, firstname, lastName, birthday, sex, salary, branch) = ".
+         "('$street', '$city', '$state', '$zip', '$firstName', '$lastName', '$birthday', '$sex', $salary, $branch) where id = $id"); 
       
       header('Location: viewEmployee.php');
    }
