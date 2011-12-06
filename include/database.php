@@ -65,6 +65,7 @@ function dbExec($db, $query){
 /**
  * Fetches the next row from a executed Oracle query.
  * The returned array is both associative (Can name fields) and numeric
+ * Associative doesnt seem to work...
  */
 function dbFetchRow($query){
    return oci_fetch_array($query, OCI_BOTH+OCI_RETURN_NULLS);
@@ -77,6 +78,15 @@ function dbFetchRow($query){
  */
 function dbDate($date){
    return "TO_DATE('$date', 'DD.MM.YYYY')";
+}
+
+/**
+ * Fetches all the rows from a query, returns a 2-dimensional array.
+ */
+function dbFetchAll($query){
+   $array[];
+   oci_fetch_all($query, $array, 0, -1, OCI_FETCHSTATEMENT_BY_ROW+OCI_NUM);
+   return $array;
 }
 
 

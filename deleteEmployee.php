@@ -29,19 +29,43 @@ $count = $row[0];
 if($count > 1){
    $employeeQuery = dbExec($db, 'select id, firstName, lastName from employee'); 
    
-   ?>
+   $employees = dbFetchAll($employeeQuery);
    
-   <p>Select employee to delete:</p>
+   
+   ?>
    <form action="deleteEmployee.php" method="post">
       <input type="hidden" name="sumbit" id="submit" value="1">
-      <select id="id" name="id">
-         <?php
-         while( ($row = dbFetchRow($employeeQuery)) ){
-            echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].' '.$row[2].'</option>';
-         }
-         ?>
-      </select>
-      <input type="submit" value="Submit" />
+      <table border="0">
+      <tr>
+         <td>Delete Employee:</td>
+         <td>
+            <select id="id" name="id">
+               <?php
+               for($i = 0; $i < (count($employees) / 3); $i++){
+                  echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
+               }
+               ?>
+            </select>
+         </td>
+      </tr>
+      <tr>
+         <td>Transfer records to:</td>
+         <td>
+            <select id="tansfer" name="fransfer">
+               <?php
+               for($i = 0; $i < (count($employees) / 3); $i++){
+                  echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
+               }
+               ?>
+            </select>
+         </td>
+      </tr>
+      <tr>
+      <td colsan="2" align="center">
+         <input type="submit" value="Submit" />
+      </td>
+      </tr>
+      </table>
    </form>
    <?php
 } else {
