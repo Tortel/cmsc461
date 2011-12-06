@@ -8,9 +8,12 @@ if($_POST['submit']){
    
    $id = $_POST['id'];
    
-   if(is_numeric($id)){
+   $transfer = $_POST['transfer'];
+   
+   //If they are both numbers, and different, delete
+   if(is_numeric($id) && is_numeric($transfer) && !($id == $transfer) ){
       
-      
+      //Set all foreign keys to $transfer, and delete $id
       
       
       //Redirect them
@@ -43,7 +46,7 @@ if($count > 1){
          <td>
             <select id="id" name="id">
                <?php
-               for($i = 0; $i < (count($employees) / 3); $i++){
+               for($i = 0; $i <= (count($employees) / 3); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
                }
                ?>
@@ -55,7 +58,7 @@ if($count > 1){
          <td>
             <select id="tansfer" name="fransfer">
                <?php
-               for($i = 0; $i < (count($employees) / 3); $i++){
+               for($i = 0; $i <= (count($employees) / 3); $i++){
                   echo '<option value="'.$employees[$i][0].'">'.$employees[$i][0].' - '.$employees[$i][1].' '.$employees[$i][2].'</option>';
                }
                ?>
