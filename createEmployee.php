@@ -13,7 +13,7 @@ if($_POST['submit']){
    $firstName = dbEscape($_POST['firstName']);
    $lastName = dbEscape($_POST['lastName']);
    $sex = $_POST['sex'];
-   $birthday = dbEscape($_POST['birtahday']);
+   $birthday = dbEscape($_POST['birthday']);
    $state = strtoupper($_POST['state']);
    $zip = $_POST['zip'];
    $salary = $_POST['salary'];
