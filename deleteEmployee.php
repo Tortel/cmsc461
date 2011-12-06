@@ -11,7 +11,7 @@ if($_POST['submit']){
    if( is_numeric($id) ){
       
       //Should auto-fail if there is any foreign keys dependent on that employee
-      dbExec("delete from Employee where id = $id");
+      dbExec($db, "delete from Employee where id = $id");
       
       //Redirect them
       header('Location: viewEmployee.php');
