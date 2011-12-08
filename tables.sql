@@ -235,8 +235,8 @@ create or replace trigger check_supervisor
    for each row
    BEGIN
       if( 'NEW.supervisor' is not null ) then
-         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = NEW.supervisor )' > 6 ) then
-            RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 6 associates');
+         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = NEW.supervisor )' > 12 ) then
+            RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
    END;

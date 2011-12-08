@@ -10,9 +10,9 @@ startPost('Project Queries and Reports');
 <ul>
    <li><a href="cityBranches.php">List the details of branches in a given city.</a></li>
    <li><a href="stateBranches.php">Find the total number of branches in a given state.</a></li>
-   <li><a href="#">List name, position, and salary of all employees at a given branch, ordered by name.</a></li>
-   <li><a href="#">Find the total number of employees and the sum of their salaries.</a></li>
-   <li><a href="#">List the number of employees in each position at branches in Baltimore, MD.</a></li>
+   <li><a href="branchEmployees.php">List name, position, and salary of all employees at a given branch, ordered by name.</a></li>
+   <li><a href="employeeSalary.php">Find the total number of employees and the sum of their salaries.</a></li>
+   <li><a href="baltimorePositions.php">List the number of employees in each position at branches in Baltimore, MD.</a></li>
    <li><a href="#">List the name of branch managers, ordered by branch address.</a></li>
    <li><a href="#">List the names of associates supervised by a given supervisor.</a></li>
    <li><a href="#">List the details of properties in a given city, along with their owners’s details, ordered by rent.</a></li>
