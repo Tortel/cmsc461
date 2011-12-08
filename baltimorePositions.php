@@ -37,7 +37,7 @@ $row = dbFetchRow($associateQuery);
 </tr>
 <?php
 
-$otherQuery = dbExec($db, 'select count(Employee.id) from employee, branch where employee.branch = branch.id and branch.city = \'Baltimore\' where id not in (select id from associate union select id from manager union select id from supervisor)');
+$otherQuery = dbExec($db, 'select count(Employee.id) from employee, branch where employee.branch = branch.id and branch.city = \'Baltimore\' where id not in ((select id from associate) union (select id from manager) union (select id from supervisor))');
 $row = dbFetchRow($otherQuery);
 ?>
 <tr>
