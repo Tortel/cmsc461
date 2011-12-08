@@ -9,7 +9,7 @@ head('Total Employees and Total Salary');
 
 startPost('Total Employees and Total Salary');
 
-$query = dbExec($db, 'select sum(id), sum(salary) from Employee');
+$query = dbExec($db, 'select count(id), sum(salary) from Employee');
 
 $row = dbFetchRow($query);
 ?>
