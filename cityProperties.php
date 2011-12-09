@@ -38,7 +38,7 @@ if(!strlen($city)){
    
    startPost("Properties in $city, ordered by rent");
    
-   $query = dbExec(4db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, rent, name, Owner.id from Property, owner where property.owner = owner.id and property.city = '$city' order by rent asc");
+   $query = dbExec($db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, rent, name, Owner.id from Property, owner where property.owner = owner.id and property.city = '$city' order by rent asc");
    
    while( ($row = dbFetchRow($query)) ){
       ?>
