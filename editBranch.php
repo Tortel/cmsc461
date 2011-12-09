@@ -46,7 +46,7 @@ if(!$branch || !is_numeric($branch)){
    
    startPost('Select Branch');
    ?>
-   <form action="editBranch.php" method="get">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <select name="id" id="id">
       <?php
          while( ($row = dbFetchRow($branchesQuery)) ){
@@ -74,7 +74,7 @@ if(!$branch || !is_numeric($branch)){
    startPost('Edit Branch '.$branch.' Details');
    ?>
    
-<form action="editBranch.php" method="post">
+<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
    <input type="hidden" value="1" id="submit" name="submit" />
    <input type="hidden" value="<?php echo $branch; ?>" id="id" name="id" />
    <table border="0">

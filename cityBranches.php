@@ -11,11 +11,11 @@ $db = dbConnect();
 if(!strlen($city)){
    //Branch not selected, show option to select one
    
-   $cityQuery = dbExec($db, 'select unique(city) from Branch');
+   $cityQuery = dbExec($db, 'select unique(city) from Branch order by city desc');
    
    startPost('Available Cities');
    ?>
-   <form action="cityBranches.php" method="get">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <select name="city" id="city">
       <?php
          while( ($row = dbFetchRow($cityQuery)) ){

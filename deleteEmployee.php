@@ -36,7 +36,7 @@ if($count > 1){
    
    
    ?>
-   <form action="deleteEmployee.php" method="post">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
       <input type="hidden" name="submit" id="submit" value="1">
       <table border="0">
       <tr>

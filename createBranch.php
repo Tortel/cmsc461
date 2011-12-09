@@ -56,7 +56,7 @@ if($error){
 
 ?>
 
-<form action="createBranch.php" method="post">
+<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
    <input type="hidden" value="1" id="submit" name="submit" />
    <table border="0">
       <tr>
