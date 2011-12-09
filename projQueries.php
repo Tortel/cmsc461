@@ -16,9 +16,9 @@ startPost('Project Queries and Reports');
    <li><a href="branchManagers.php">List the name of branch managers, ordered by branch address.</a></li>
    <li><a href="supervisorAssociates.php">List the names of associates supervised by a given supervisor.</a></li>
    <li><a href="cityProperties.php">List the details of properties in a given city, along with their owners's details, ordered by rent.</a></li>
-   <li><a href="#">List the details of properties for rent assigned to each associate at a given branch.</a></li>
-   <li><a href="#">List the details of properties provided by business owners at a given branch.</a></li>
-   <li><a href="#">Find the total number of properties of each type at all branches.</a></li>
+   <li><a href="branchProperties.php">List the details of properties for rent assigned to each associate at a given branch.</a></li>
+   <li><a href="businessProperties.php">List the details of properties provided by business owners at a given branch.</a></li>
+   <li><a href="propertyTotals.php">Find the total number of properties of each type at all branches.</a></li>
    <li><a href="#">List the details of private property owners that provide more than one property for rent.</a></li>
    <li><a href="#">List the details of apartments with at least two bedrooms in Baltimore, MD with a monthly rent of at most $1200.</a></li>
    <li><a href="#">List the details of clients registered at a branch, together with their preferences, which have not signed a lease yet.</a></li>
