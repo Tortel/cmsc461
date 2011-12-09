@@ -11,11 +11,11 @@ $db = dbConnect();
 if( (!$id && $id != 0) || !is_numeric($id)){
    //Employee not selected, show option to select one
    
-   $employeeQuery = dbExec($db, 'select id, firstname, lastname from Employee');
+   $employeeQuery = dbExec($db, 'select id, firstname, lastname from Supervisor');
    
    startPost('Select Supervisor');
    ?>
-   <form action="supervisorAssociates.php" method="get">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <select name="id" id="id">
       <?php
          while( ($row = dbFetchRow($employeeQuery)) ){
