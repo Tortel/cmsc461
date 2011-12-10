@@ -11,7 +11,7 @@ startPost('Total Number of Properties, by Type');
 $query = dbExec($db, 'Select type, count(id) from Property group by type');
 
 ?>
-<table border="0">
+<table border="1">
    <tr>
       <td><b>Type</b></td>
       <td>Count</td>
