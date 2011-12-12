@@ -131,6 +131,7 @@ create table Property(
    rent number(*,2),
    fee number(2,5),
    rented char(1),
+   posted date,
    lastUpdate date,
    maxRent number(*,2),
    minRent number(*,2),
