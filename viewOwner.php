@@ -8,17 +8,6 @@ head('View Owner Details');
 
 $id = $_GET['id'];
 
-/*
-   id number(10) primary key,
-   name varchar2(100),
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   phone varchar2(10),
-   fax varchar2(10),
-   isBusiness char(1),
-*/
 if( (!$id || !($id == 0)) || !is_numeric($id) ){
    $ownersQuery = dbExec($db, 'select id, name, city, state from Owner');
    
@@ -53,19 +42,58 @@ if( (!$id || !($id == 0)) || !is_numeric($id) ){
    
    startPost('Owner Details');
    
-   
    ?>
-   
-   
-   
-   
+   <table>
+   <tr>
+      <td>Name:</td>
+      <td><?php echo $row[0]; ?></td>
+   </tr>
+   <tr>
+      <td>Address:</td>
+      <td><?php echo $row[1].'<br>'.$row[2].', '.$row[3].'<br>'.$row[4]; ?></td>
+   </tr>
+   <tr>
+      <td>Phone Number:</td>
+      <td><?php echo $row[5]; ?></td>
+   </tr>
+   <tr>
+      <td>Fax Number:</td>
+      <td><?php echo $row[6]; ?></td>
+   </tr>
+   <?php
+      if($row[7] == 'Y'){
+      $businessQuery = dbExec($db, "select type, contactName from business where id = $id");
+      $bRow = dbFetchRow($businessQuery);
+      ?>
+      <tr>
+         <td>Type:</td>
+         <td>Business</td>
+      </tr>
+      <tr>
+         <td>Business Type:</td>
+         <td><?php echo $bRow[0]; ?></td>
+      </tr>
+      <tr>
+         <td>Contact Name:</td>
+         <td><?php echo $bRow[1]; ?></td>
+      </tr>
+      <?php
+      } else {
+      ?>
+      <tr>
+         <td>Type:</td>
+         <td>Private Owner</td>
+      </tr>
+      <?php
+      }
+   ?>
+   </table>
    
    <?php
    
    endPost();
    
    foot();
-   
    
 }
 
