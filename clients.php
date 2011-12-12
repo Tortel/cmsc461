@@ -62,7 +62,7 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
          </tr>
          <tr>
             <td>Home Phone:</td>
-            <td><?php echo $row[7]; ?>
+            <td><?php echo $row[7]; ?></td>
          </tr>
          <tr>
             <td>Work Phone:</td>

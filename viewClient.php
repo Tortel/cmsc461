@@ -61,7 +61,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Home Phone:</td>
-         <td><?php echo $row[7]; ?>
+         <td><?php echo $row[7]; ?></td>
       </tr>
       <tr>
          <td>Work Phone:</td>

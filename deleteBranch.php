@@ -39,7 +39,7 @@ if($count > 1){
       <input type="hidden" name="submit" id="submit" value="1">
       <table border="0">
       <tr>
-         <td>Delete Employee:</td>
+         <td>Delete Branch:</td>
          <td>
             <select id="id" name="id">
                <?php

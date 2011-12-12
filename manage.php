@@ -13,6 +13,7 @@ startPost('Manage Data');
 <ul>
    <li><a href="viewBranch.php">View Branch Details</a></li>
    <li><a href="viewEmployee.php">View Employee Details</a></li>
+   <li><a href="viewClient.php">View Client Details</a></li>
 </ul>
 
 <br>
@@ -20,6 +21,7 @@ startPost('Manage Data');
 <ul>
    <li><a href="createBranch.php">Create a new branch</a></li>
    <li><a href="createEmployee.php">Create Employee</a></li>
+   <li><a href="createClient.php">Create Client</a></li>
 </ul>
 
 <br>
@@ -27,6 +29,7 @@ startPost('Manage Data');
 <ul>
    <li><a href="editBranch.php">Edit Existing Branch</a></li>
    <li><a href="editEmployee.php">Edit Existing Employee</a></li>
+   <li><a href="editClient.php">Edit Existing Client</a></li>
 </ul>
 
 <br>
@@ -34,6 +37,7 @@ startPost('Manage Data');
 <ul>
    <li><a href="deleteBranch.php">Delete Branch</a></li>
    <li><a href="deleteEmployee.php">Delete Employee</a></li>
+   <li><a href="deleteClient.php">Delete Client</a></li>
 <ul>
 
 
