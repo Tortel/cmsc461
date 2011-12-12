@@ -22,8 +22,8 @@ startPost('Project Queries and Reports');
    <li><a href="multiplePropertyOwners.php">List the details of private property owners that provide more than one property for rent.</a></li>
    <li><a href="baltApartments.php">List the details of apartments with at least two bedrooms in Baltimore, MD with a monthly rent of at most $1200.</a></li>
    <li><a href="clients.php">List the details of clients registered at a branch, together with their preferences, which have not signed a lease yet.</a></li>
-   <li><a href="#">List the details of the owner of a given property.</a></li>
-   <li><a href="#">List the comments made by clients that viewed a given property.</a></li>
+   <li><a href="propertyOwner.php">List the details of the owner of a given property.</a></li>
+   <li><a href="propertyComments.php">List the comments made by clients that viewed a given property.</a></li>
    <li><a href="#">Find those properties that have been advertised more than the average number of times.</a></li>
    <li><a href="#">List the details of leases due to expire next month at a given branch.</a></li>
    <li><a href="#">For each state, list the total number of leases with rental duration less than 12 months.</a></li>
