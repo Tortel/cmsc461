@@ -75,7 +75,19 @@ if( (!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Status:</td>
-         <td>Todo</td>
+         <?php
+         $statusQuery = dbExec($db, "select count(id) from manager where id = $id");
+         $manager = dbFetchRow($statusQuery);
+         $statusQuery = dbExec($db, "select count(id) from supervisor where id = $id");
+         $supervisor = dbFetchRow($statusQuery);
+         if($manager[0]){
+            echo '<td>Branch Manager</td>';
+         } else if($supervisor[0]){
+            echo '<td>Supervisor</td>';
+         } else {
+            echo '<td>Associate</td>';
+         }
+         ?>
       </tr>
    </table>
    <?php

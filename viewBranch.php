@@ -15,7 +15,7 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
    
    startPost('Select Branch');
    ?>
-   <form action="viewBranch.php" method="get">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <select name="id" id="id">
       <?php
          while( ($row = dbFetchRow($branchesQuery)) ){
