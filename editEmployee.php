@@ -50,7 +50,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
    
    startPost('Select Employee');
    ?>
-   <form action="editEmployee.php" method="get">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <select name="id" id="id">
       <?php
          while( ($row = dbFetchRow($employeeQuery)) ){
