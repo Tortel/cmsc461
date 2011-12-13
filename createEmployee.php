@@ -36,7 +36,7 @@ if($_POST['submit']){
       
       if($_POST['position'] == 'associate'){
          if($_POST['supervisor'] != -1){
-            dbExec($db, "insert into associate (id, supervisor) values (key_employee.CURRVAL, ".$_POST['supervisor']).")");
+            dbExec($db, "insert into associate (id, supervisor) values (key_employee.CURRVAL, ".$_POST['supervisor'].")");
          } else {
             dbExec($db, "insert into associate (id, supervisor) values (key_employee.CURRVAL, null)");
          }
