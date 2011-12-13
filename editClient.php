@@ -50,7 +50,7 @@ if( (!$id && !($id == 0)) || !is_numeric($id) ){
    $clientQuery = dbExec($db, 'select id, lastName, firstName from client');
 
    ?>
-   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
       <input type="hidden" name="submit" id="submit" value="1">
       <table border="0">
       <tr>

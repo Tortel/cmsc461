@@ -39,7 +39,7 @@ head('Edit Branch Details');
 
 $branch = $_GET['id'];
 
-if(!$branch || !is_numeric($branch)){
+if( (!$branch && !($branch == 0)) || !is_numeric($branch) ){
    //Branch not selected, show option to select one
    
    $branchesQuery = dbExec($db, 'select id, city, state from Branch');
