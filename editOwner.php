@@ -90,6 +90,7 @@ if($error){
 
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
    <input type="hidden" value="1" id="submit" name="submit" />
+   <input type="hidden" value="$id" name="id" id="id" />
    <table border="0">
       <tr>
          <td>Name:</td>
