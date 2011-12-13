@@ -8,7 +8,7 @@ head('View Owner Details');
 
 $id = $_GET['id'];
 
-if( (!$id || !($id == 0)) || !is_numeric($id) ){
+if( (!$id && !($id == 0)) || !is_numeric($id) ){
    $ownersQuery = dbExec($db, 'select id, name, city, state from Owner');
    
    startPost('Select Owner');
