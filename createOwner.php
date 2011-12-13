@@ -33,7 +33,7 @@ if($_POST['submit']){
          "(key_owner.nextval, '$street', '$city', '$state', '$zip', '$name', '$phone', '$fax', '$business')");
       
       if($business == 'Y'){
-         dbExec($db, "insert into Business (id, type, contactName) values (key_onwer.curval, '$type', '$contact')");
+         dbExec($db, "insert into Business (id, type, contactName) values (key_owner.curval, '$type', '$contact')");
       }
       
       header("Location: viewOwner.php");
