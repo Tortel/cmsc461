@@ -54,7 +54,7 @@ if( (!$id && !($id == 0)) || !is_numeric($id) ){
       <input type="hidden" name="submit" id="submit" value="1">
       <table border="0">
       <tr>
-         <td>Delete Client:</td>
+         <td>Select Client:</td>
          <td>
             <select id="id" name="id">
                <?php

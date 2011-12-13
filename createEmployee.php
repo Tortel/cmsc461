@@ -34,22 +34,18 @@ if($_POST['submit']){
       dbExec($db, "insert into Employee (id, street, city, state, zip, firstname, lastName, birthday, sex, salary, branch) values ".
          "(key_employee.nextval, '$street', '$city', '$state', '$zip', '$firstName', '$lastName', ".dbDate($birthday).", '$sex', $salary, $branch)"); 
       
-      $query = dbExec($db, 'Select last_number from user_sequences where sequence_name = \'KEY_EMPLOYEE\'');
-      
-      $row = dbFetchRow($query);
-      
       if($_POST['position'] == 'associate'){
          if($_POST['supervisor'] != -1){
-            dbExec($db, "insert into associate (id, supervisor) values ($row[0], $_POST['supervisor'])");
+            dbExec($db, "insert into associate (id, supervisor) values (key_employee.CURRVAL, ".$_POST['supervisor']).")");
          } else {
-            dbExec($db, "insert into associate (id, supervisor) values ($row[0], null)");
+            dbExec($db, "insert into associate (id, supervisor) values (key_employee.CURRVAL, null)");
          }
       } else {
-         dbExec($db, "insert into Supervisor (id) values ($row[0])");
+         dbExec($db, "insert into Supervisor (id) values (key_employee.CURRVAL)");
       }
       
       
-      header("Location: viewEmployee.php?id=$row[0]");
+      header("Location: viewEmployee.php");
    }
    
 }
