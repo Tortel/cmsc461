@@ -18,6 +18,7 @@ if($_POST['submit']){
    $zip = $_POST['zip'];
    $salary = $_POST['salary'];
    $branch = $_POST['branch'];
+   $id = $_POST['id'];
    
    if(!$street || !$city || !$state || !$zip || !$salary || !$birthday || !$firstName || !$lastName){
       $error = true;
