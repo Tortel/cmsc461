@@ -144,9 +144,9 @@ startPost('Edit Client');
                $associateQuery = dbExec($db, 'select id, lastName, firstName from employee where id in (select id from associate)');
                while( ($arow = dbFetchRow($associateQuery)) ){
                   if($arow[0] == $row[10]){
-                     echo '<option value="'.$row[0].'" selected>'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+                     echo '<option value="'.$arow[0].'" selected>'.$arow[0].' - '.$arow[1].', '.$arow[2].'</option>';
                   } else{
-                     echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+                     echo '<option value="'.$arow[0].'">'.$arow[0].' - '.$arow[1].', '.$arow[2].'</option>';
                   }
                }
             ?>
@@ -161,9 +161,9 @@ startPost('Edit Client');
                $branchesQuery = dbExec($db, 'select id, city, state from Branch');
                while( ($brow = dbFetchRow($branchesQuery)) ){
                   if($brow[0] == $row[11]){
-                     echo '<option value="'.$row[0].'" selected>'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+                     echo '<option value="'.$brow[0].'" selected>'.$brow[0].' - '.$brow[1].', '.$brow[2].'</option>';
                   } else{
-                     echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+                     echo '<option value="'.$brow[0].'">'.$brow[0].' - '.$brow[1].', '.$brow[2].'</option>';
                   }
                }
             ?>
