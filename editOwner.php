@@ -137,8 +137,9 @@ if($error){
       </tr>
       <?php
          if($row[7] == 'Y'){
-         $businessQuery = dbExec($db, "select type, contactName from business where id = $id");
-         $bRow = dbFetchRow($businessQuery);
+            $businessQuery = dbExec($db, "select type, contactName from business where id = $id");
+            $bRow = dbFetchRow($businessQuery);
+         }
       ?>
       <tr>
          <td>Business Type: (Ignored if not business)</td>
