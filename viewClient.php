@@ -81,11 +81,11 @@ if( (!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Registering Associate:</td>
-         <td><a href="viewEmployee.php?id=<?php echo $row[12]; ?>">Employee <?php echo $row[12]; ?></a></td>
+         <td><a href="viewEmployee.php?id=<?php echo $row[12]; ?>">Employee <?php echo $row[11]; ?></a></td>
       </tr>
       <tr>
          <td>Branch:</td>
-         <td><a href="viewBranch.php?id=<?php echo $row[13]; ?>">Branch <?php echo $row[13]; ?></a></td>
+         <td><a href="viewBranch.php?id=<?php echo $row[13]; ?>">Branch <?php echo $row[12]; ?></a></td>
       </tr>
    </table>
    <?php
