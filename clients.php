@@ -37,7 +37,7 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
 } else {
    startPost("Clients that have not signed a lease at Branch $branch");
 
-   $query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branchId from Client where id not in (Select client from lease) and branch = $branch");
+   $query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branch from Client where id not in (Select client from lease) and branch = $branch");
 
    while( ($row = dbFetchRow($query)) ){
       ?>

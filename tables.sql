@@ -105,7 +105,7 @@ create table Client(
    maxRent number(*,2),
    associate number(10),
    registerDate Date,
-   branchId number(10)
+   branch number(10)
 );
 
 create table Viewing(
@@ -203,7 +203,7 @@ alter table Supervisor add constraint super_fk1 foreign key(id) REFERENCES Emplo
 alter table Associate add constraint assoc_fk1 foreign key(id) REFERENCES Employee(id);
 alter table Associate add constraint assoc_fk2 foreign key(supervisor) REFERENCES Supervisor(id);
 
-alter table Client add constraint client_fk1 foreign key(branchId) REFERENCES Branch(id);
+alter table Client add constraint client_fk1 foreign key(branch) REFERENCES Branch(id);
 alter table Client add constraint client_fk2 foreign key(associate) REFERENCES Associate(id);
 
 alter table Viewing add constraint view_fk1 foreign key(client) REFERENCES Client(id);
@@ -217,10 +217,10 @@ alter table Lease add constraint lease_fk1 foreign key(client) REFERENCES Client
 alter table Lease add constraint lease_fk2 foreign key(property) REFERENCES Property(id);
 alter table Lease add constraint lease_fk3 foreign key(associate) REFERENCES Associate(id);
 
-alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owner(id) on delete CASCADE;
+alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owner(id);
 
-alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFERENCES Newspaper(id) on delete CASCADE;
-alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id) on delete CASCADE;
+alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFERENCES Newspaper(id);
+alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id);
 
 /* Need a function to calculate the average popularity since a given date */
 
