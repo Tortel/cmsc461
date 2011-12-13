@@ -31,10 +31,14 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      $query = dbExec($db, "insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values ".
-         "(key_client.nextval, '$street', '$city', '$state', '$zip', '$firstName', '$lastName', $branch, '$phone', '$work', $type, $maxRent, $associate, CURRENT_DATE)"); 
+      dbExec($db, "insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values ".
+         "(key_client.nextval, '$street', '$city', '$state', '$zip', '$firstName', '$lastName', $branch, '$phone', '$work', $type, $maxRent, $associate, CURRENT_DATE)");
+         
+      $query = dbExec($db, 'Select last_number from user_sequences where sequence_name = \'KEY_CLIENT\'');
       
-      header('Location: viewClient.php');
+      $row = dbFetchRow($query);
+      
+      header("Location: viewClient.php?id=$row[0]");
    }
    
 }
@@ -90,10 +94,6 @@ startPost('Create Client');
       <tr>
          <td>Maximum Rent: (No $ sign)</td>
          <td><input type="text" size="30" id="maxRent" name="maxRent" value="<?php echo $maxRent ?>" /></td>
-      </tr>
-      <tr>
-         <td>Register Date:</td>
-         <td><?php echo $row[10]; ?></td>
       </tr>
       <tr>
          <td>Registering Associate:</td>

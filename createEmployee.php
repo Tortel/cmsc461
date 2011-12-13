@@ -31,10 +31,21 @@ if($_POST['submit']){
       //This is where the new branch is acutally created
 
       //Run the query
-      $query = dbExec($db, "insert into Employee (id, street, city, state, zip, firstname, lastName, birthday, sex, salary, branch) values ".
+      dbExec($db, "insert into Employee (id, street, city, state, zip, firstname, lastName, birthday, sex, salary, branch) values ".
          "(key_employee.nextval, '$street', '$city', '$state', '$zip', '$firstName', '$lastName', ".dbDate($birthday).", '$sex', $salary, $branch)"); 
       
-      header('Location: viewEmployee.php');
+      $query = dbExec($db, 'Select last_number from user_sequences where sequence_name = \'KEY_EMPLOYEE\'');
+      
+      $row = dbFetchRow($query);
+      
+      if($_POST['position'] == 'associate'){
+         dbExec($db, "insert into associate (id, supervisor) values ($row[0], null)");
+      } else {
+         dbExec($db, "insert into Supervisor (id) values ($row[0])");
+      }
+      
+      
+      header("Location: viewEmployee.php?id=$row[0]");
    }
    
 }
@@ -107,6 +118,15 @@ if($error){
                   }
                }
             ?>
+            </select>
+         </td>
+      </tr>
+      <tr>
+         <td>Position:</td>
+         <td>
+            <select name="position" id="position">
+               <option value="associate">Associate</option>
+               <option value="supervisor">Supervisor</option>
             </select>
          </td>
       </tr>

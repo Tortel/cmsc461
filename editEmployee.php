@@ -30,9 +30,26 @@ if($_POST['submit']){
    if(!$error){
       //Run the query
       $query = dbExec($db, "update Employee set street = '$street', city = '$city', state = '$state', zip = '$zip', firstname = '$firstName',".
-      " lastName = '$lastName', birthday = '$birthday', sex = '$sex', salary = $salary, branch = $branch where id = $id"); 
+      " lastName = '$lastName', birthday = '$birthday', sex = '$sex', salary = $salary, branch = $branch where id = $id");
       
-      header('Location: viewEmployee.php');
+      
+      if($_POST['position'] == "associate"){
+         $query = dbExec($db, "select count(id) from associate where id = $id");
+         $row = dbFetchRow($query);
+         if(!$row[0]){
+            dbExec($db, "delete from supervisor where id = $id");
+            dbExec($db, "insert into associate (id, supervisor) values ($id, null)");
+         }
+      } else {
+         $query = dbExec($db, "select count(id) from supervisor where id = $id");
+         $row = dbFetchRow($query);
+         if(!$row[0]){
+            dbExec($db, "delete from associate where id = $id");
+            dbExec($db, "insert into supervisor (id) values ($id)");
+         }
+      }
+      
+      header("Location: viewEmployee.php?id=$id");
    }
    
 }
@@ -112,7 +129,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
          </td>
       </tr>
       <tr>
-         <td>Birthday (Ex: 10-DEC-90):</td>
+         <td>Birthday (Ex: 12.10.1990):</td>
          <td><input type="text" size="30" id="birthday" name="birthday" value="<?php echo $row[3]; ?>" /></td>
       </tr>
       <tr>
@@ -149,6 +166,26 @@ if( (!$id && $id != 0) || !is_numeric($id)){
                }
             ?>
             </select>
+         </td>
+      </tr>
+      <tr>
+         <td>Position:</td>
+         <td>
+         <?php
+            $query = dbExec($db, "select count(id) from manager where id = $id");
+            $row = dbFetchRow($query);
+            
+            if(!$row[0]){
+         ?>
+            <select name="position" id="position">
+               <option value="associate">Associate</option>
+               <option value="supervisor">Supervisor</option>
+            </select>
+         <?php
+         } else {
+            echo 'Manager';
+         }
+         ?>
          </td>
       </tr>
       <tr>
