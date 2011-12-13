@@ -40,12 +40,12 @@ if($_POST['submit']){
          if(!$row[0]){
             dbExec($db, "delete from supervisor where id = $id");
             if($_POST['supervisor'] != -1){
-               dbExec($db, "insert into associate (id, supervisor) values ($id, $_POST['supervisor'])");
+               dbExec($db, "insert into associate (id, supervisor) values ($id, ".$_POST['supervisor'].")");
             } else {
                dbExec($db, "insert into associate (id, supervisor) values ($id, null)");
             }
          } else {
-            dbExec($db, "update associate set supervisor = $_POST['supervisor'] where id = $id");
+            dbExec($db, "update associate set supervisor = ".$_POST['supervisor']." where id = $id");
          }
       } else {
          $query = dbExec($db, "select count(id) from supervisor where id = $id");
