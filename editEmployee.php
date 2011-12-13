@@ -39,7 +39,13 @@ if($_POST['submit']){
          $row = dbFetchRow($query);
          if(!$row[0]){
             dbExec($db, "delete from supervisor where id = $id");
-            dbExec($db, "insert into associate (id, supervisor) values ($id, null)");
+            if($_POST['supervisor'] != -1){
+               dbExec($db, "insert into associate (id, supervisor) values ($id, $_POST['supervisor'])");
+            } else {
+               dbExec($db, "insert into associate (id, supervisor) values ($id, null)");
+            }
+         } else {
+            dbExec($db, "update associate set supervisor = $_POST['supervisor'] where id = $id");
          }
       } else {
          $query = dbExec($db, "select count(id) from supervisor where id = $id");
@@ -187,6 +193,21 @@ if( (!$id && $id != 0) || !is_numeric($id)){
             echo 'Manager';
          }
          ?>
+         </td>
+      </tr>
+      <tr>
+         <td>Supervisor: (Ignored if position is supervisor)</td>
+         <td>
+            <select name="supervisor" id="supervisor">
+               <option value="-1">NONE</option>
+               <?php
+               //Umm, dont read this SQL. Seriously. Go away. Ignore it.
+               $query = dbExec($db, 'select Supervisor.id, lastName, firstName from supervisor, employee where Supervisor.id = employee.id and supervisor.id not in (select supervisor from associate) union select sId as id, lastName, firstName from (select supervisor as sId, count(supervisor) as count from associate group by supervisor), employee where count < 12 and employee.id = sId');
+               while( ($row = dbFetchRow($query)) ){
+                  echo "<option value=\"$row[0]\">$row[0] - $row[1], $row[2]</option>";
+               }
+               ?>
+            </select>
          </td>
       </tr>
       <tr>
