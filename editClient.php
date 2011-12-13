@@ -20,6 +20,7 @@ if($_POST['submit']){
    $maxRent = $_POST['maxRent'];
    $associate = $_POST['associate'];
    $branch = $_POST['branch'];
+   $id = $_POST['id'];
    
    if(!$street || !$city || !$state || !$zip || !$phone || !$work || !$firstName || !$lastName || !$maxRent){
       $error = true;
@@ -31,56 +32,100 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      dbExec($db, "insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values ".
-         "(key_client.nextval, '$street', '$city', '$state', '$zip', '$firstName', '$lastName', $branch, '$phone', '$work', $type, $maxRent, $associate, CURRENT_DATE)");
+      dbExec($db, "update Client set street = '$street', city = '$city', state = '$state', zip = '$zip', firstname = '$firstName', lastName = '$lastName', branch = $branch, phone = '$phone', ".
+      "workPhone = '$work', propertyType = $type, maxRent = $maxRent, associate = $associate where id = $id");
       
       header("Location: viewClient.php");
    }
    
 }
 
-head('Create Client');
+head('Edit Client');
 
-startPost('Create Client');
+$id = $_GET['id'];
+
+if( (!$id && !($id == 0)) || !is_numeric($id) ){
+   startPost('Edit Client');
+      
+   $clientQuery = dbExec($db, 'select id, lastName, firstName from client');
+
+   ?>
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+      <input type="hidden" name="submit" id="submit" value="1">
+      <table border="0">
+      <tr>
+         <td>Delete Client:</td>
+         <td>
+            <select id="id" name="id">
+               <?php
+                  while( ($row = dbFetchRow($clientQuery)) ){
+                     echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+                  }
+               ?>
+            </select>
+         </td>
+      </tr>
+      <tr>
+      <td colsan="2" align="center">
+         <input type="submit" value="Submit" />
+      </td>
+      </tr>
+      </table>
+   </form>
+   <?php
+
+   endPost();
+
+   foot();
+   exit();
+}
+
+$query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branchId from Client where id = $id");
+
+$row = dbFetchRow($query);
+
+startPost('Edit Client');
 ?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 <input type="hidden" id="submit" name="submit" value="1" />
+<input type="hidden" value="<?php echo $id; ?>" id="id" mane="id" />
    <table>
       <td>First Name:</td>
-         <td><input type="text" size="30" id="firstName" name="firstName" value="<?php echo $firstName; ?>" /></td>
+         <td><input type="text" size="30" id="firstName" name="firstName" value="<?php echo $row[0]; ?>" /></td>
       </tr>
       <tr>
          <td>Last Name:</td>
-         <td><input type="text" size="30" id="lastName" name="lastName" value="<?php echo $lastName; ?>" /></td>
+         <td><input type="text" size="30" id="lastName" name="lastName" value="<?php echo $row[1]; ?>" /></td>
       </tr>
       <tr>
          <td>Street Address (Ex: 123 Main St)</td>
-         <td><input type="text" size="30" id="street" name="street" value="<?php echo $street ?>" /></td>
+         <td><input type="text" size="30" id="street" name="street" value="<?php echo $row[2] ?>" /></td>
       </tr>
       <tr>
          <td>City:</td>
-         <td><input type="text" size="30" id="city" name="city" value="<?php echo $city ?>" /></td>
+         <td><input type="text" size="30" id="city" name="city" value="<?php echo $row[3] ?>" /></td>
       </tr>
       <tr>
          <td>State (Ex: MD):</td>
-         <td><input type="text" size="30" id="state" name="state" value="<?php echo $state ?>" /></td>
+         <td><input type="text" size="30" id="state" name="state" value="<?php echo $row[4] ?>" /></td>
       </tr>
       <tr>
          <td>Zip:</td>
-         <td><input type="text" size="30" id="zip" name="zip" value="<?php echo $zip ?>" /></td>
+         <td><input type="text" size="30" id="zip" name="zip" value="<?php echo $row[5] ?>" /></td>
       </tr>
       <tr>
          <td>Home Phone:</td>
-         <td><input type="text" size="30" id="phone" name="phone" value="<?php echo $phone ?>" /></td>
+         <td><input type="text" size="30" id="phone" name="phone" value="<?php echo $row[6] ?>" /></td>
       </tr>
       <tr>
          <td>Work Phone:</td>
-         <td><input type="text" size="30" id="work" name="work" value="<?php echo $work ?>" /></td>
+         <td><input type="text" size="30" id="work" name="work" value="<?php echo $row[7] ?>" /></td>
       </tr>
       <tr>
          <td>Property Prefrence:</td>
          <td>
             <select id="type" name="type">
+               <?php echo '<option value="'.$row[8].'">'.propertyType($row[8]).'</option>';
                <option value="0"><?php echo propertyType(0); ?></option>
                <option value="1"><?php echo propertyType(1); ?></option>
                <option value="2"><?php echo propertyType(2); ?></option>
@@ -89,7 +134,7 @@ startPost('Create Client');
       </tr>
       <tr>
          <td>Maximum Rent: (No $ sign)</td>
-         <td><input type="text" size="30" id="maxRent" name="maxRent" value="<?php echo $maxRent ?>" /></td>
+         <td><input type="text" size="30" id="maxRent" name="maxRent" value="<?php echo $row[9] ?>" /></td>
       </tr>
       <tr>
          <td>Registering Associate:</td>
@@ -97,8 +142,8 @@ startPost('Create Client');
             <select name="associate" id="associate">
             <?php
                $associateQuery = dbExec($db, 'select id, lastName, firstName from employee where id in (select id from associate)');
-               while( ($row = dbFetchRow($associateQuery)) ){
-                  if($row[0] == $associate){
+               while( ($arow = dbFetchRow($associateQuery)) ){
+                  if($arow[0] == $row[10]){
                      echo '<option value="'.$row[0].'" selected>'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
                   } else{
                      echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
@@ -114,8 +159,8 @@ startPost('Create Client');
             <select name="branch" id="branch">
             <?php
                $branchesQuery = dbExec($db, 'select id, city, state from Branch');
-               while( ($row = dbFetchRow($branchesQuery)) ){
-                  if($row[0] == $branch){
+               while( ($brow = dbFetchRow($branchesQuery)) ){
+                  if($brow[0] == $row[11]){
                      echo '<option value="'.$row[0].'" selected>'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
                   } else{
                      echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
