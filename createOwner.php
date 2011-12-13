@@ -32,12 +32,12 @@ if($_POST['submit']){
       dbExec($db, "insert into Owner (id, street, city, state, zip, name, phone, fax, isBusiness) values ".
          "(key_owner.nextval, '$street', '$city', '$state', '$zip', '$name', '$phone', '$fax', '$business')");
       
-      $query = dbExec($db, 'Select last_number from user_sequences where sequence_name = \'KEY_EMPLOYEE\'');
+      $query = dbExec($db, "Select id from owner where street = '$street' and name = '$name'");
       
       $row = dbFetchRow($query);
       
       if($business == 'Y'){
-         dbExec($db, "insert into Business (id, type, contactName) values ($row[0], '$type', '$contactName')");
+         dbExec($db, "insert into Business (id, type, contactName) values ($row[0], '$type', '$contact')");
       }
       
       header("Location: viewOwner.php?id=$row[0]");
