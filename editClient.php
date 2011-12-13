@@ -80,7 +80,7 @@ if( (!$id && !($id == 0)) || !is_numeric($id) ){
    exit();
 }
 
-$query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branchId from Client where id = $id");
+$query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branch from Client where id = $id");
 
 $row = dbFetchRow($query);
 
