@@ -240,6 +240,9 @@ create or replace trigger check_supervisor
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
+   EXCEPTION
+      when VALUE_ERROR then
+         dbms_output.put_line('Value_error raised');
    END;
 /
 

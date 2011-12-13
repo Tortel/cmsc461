@@ -46,7 +46,7 @@ if($_POST['submit']){
          $row = dbFetchRow($query);
          if(!$row[0]){
             dbExec($db, "delete from associate where id = $id");
-            dbExec($db, "insert into supervisor $id");
+            dbExec($db, "insert into supervisor (id) values ($id)");
          }
       }
       
