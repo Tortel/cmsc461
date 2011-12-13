@@ -24,7 +24,7 @@ head('Delete Client');
 
 startPost('Delete Client');
    
-$branchesQuery = dbExec($db, 'select id, lastname, firstName from Branch');
+$clientQuery = dbExec($db, 'select id, lastName, firstName from client');
 
 ?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
@@ -35,7 +35,7 @@ $branchesQuery = dbExec($db, 'select id, lastname, firstName from Branch');
       <td>
          <select id="id" name="id">
             <?php
-               while( ($row = dbFetchRow($branchesQuery)) ){
+               while( ($row = dbFetchRow($clientQuery)) ){
                   echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
                }
             ?>
