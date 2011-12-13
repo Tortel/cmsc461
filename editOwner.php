@@ -45,6 +45,8 @@ if($_POST['submit']){
 
 $id = $_GET['id'];
 
+head('Edit Owner');
+
 if( (!$id && !($id == 0)) || !is_numeric($id) ){
    $ownersQuery = dbExec($db, 'select id, name, city, state from Owner');
    
@@ -77,10 +79,7 @@ $ownerQuery = dbExec($db, "select name, street, city, state, zip, phone, fax, is
 
 $row = dbFetchRow($ownerQuery);
 
-
-head('Create Owner');
-
-startPost('Create Owner');
+startPost('Edit Owner');
 
 
 if($error){
@@ -143,11 +142,11 @@ if($error){
       ?>
       <tr>
          <td>Business Type: (Ignored if not business)</td>
-         <td><input type="text" size="30" id="type" name="type" value="<?php echo $brow[0]; ?>" /></td>
+         <td><input type="text" size="30" id="type" name="type" value="<?php echo $bRow[0]; ?>" /></td>
       </tr>
       <tr>
          <td>Contact Name: (Ignored if not business)</td>
-         <td><input type="text" size="30" id="contact" name="contact" value="<?php echo $brow[1]; ?>" /></td>
+         <td><input type="text" size="30" id="contact" name="contact" value="<?php echo $bRow[1]; ?>" /></td>
       </tr>
       <tr>
          <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
