@@ -48,7 +48,8 @@ function dbExecute($query){
    $r = oci_execute($query);
    if(!$r){
       $e = oci_error($query);
-      echo $e['sqltext'].', '.$e['offset'].'<br>';
+      echo '<pre>';
+      echo $e['sqltext'].' -- '.$e['offset'];
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
    }
 }
