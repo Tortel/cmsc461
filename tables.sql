@@ -277,6 +277,14 @@ create or replace trigger mark_rented
    END;
 /
 
+create or replace trigger mark_unrented
+   before delete on Lease
+   for each row
+   BEGIN
+      update property set rented = 'N' where id = :OLD.property;
+   END;
+/
+
 create or replace trigger delete_manager
    after delete on Branch
    for each row
