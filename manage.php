@@ -15,6 +15,7 @@ startPost('Manage Data');
    <li><a href="viewEmployee.php">View Employee Details</a></li>
    <li><a href="viewClient.php">View Client Details</a></li>
    <li><a href="viewOwner.php">View Owner Details</a></li>
+   <li><a href="viewProperty.php">View Property Details</a></li>
 </ul>
 
 <br>
@@ -24,15 +25,17 @@ startPost('Manage Data');
    <li><a href="createEmployee.php">Create Employee</a></li>
    <li><a href="createClient.php">Create Client</a></li>
    <li><a href="createOwner.php">Create Owner</a></li>
+   <li><a href="createProperty.php">Create Property</a></li>
 </ul>
 
 <br>
 <h4>Edit Existing</h4>
 <ul>
-   <li><a href="editBranch.php">Edit Existing Branch</a></li>
-   <li><a href="editEmployee.php">Edit Existing Employee</a></li>
-   <li><a href="editClient.php">Edit Existing Client</a></li>
-   <li><a href="editOwner.php">Edit Existing Owner</a></li>
+   <li><a href="editBranch.php">Edit Branch</a></li>
+   <li><a href="editEmployee.php">Edit Employee</a></li>
+   <li><a href="editClient.php">Edit Client</a></li>
+   <li><a href="editOwner.php">Edit Owner</a></li>
+   <li><a href="editProperty.php">Edit Property</a></li>
 </ul>
 
 <br>
@@ -42,6 +45,7 @@ startPost('Manage Data');
    <li><a href="deleteEmployee.php">Delete Employee</a></li>
    <li><a href="deleteClient.php">Delete Client</a></li>
    <li><a href="deleteOwner.php">Delete Owner</a></li>
+   <li><a href="deleteProperty.php">Delete Property</a></li>
 <ul>
 
 
