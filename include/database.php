@@ -77,11 +77,11 @@ function dbFetchRow($query){
 
 /**
  * Makes an insert date  statement.
- * Date needs to be in dd.mm.yyyy
+ * Date needs to be in mm.dd.yyyy
  * (Ex 12.10.1990)
  */
 function dbDate($date){
-   return "TO_DATE('$date', 'DD.MM.YYYY')";
+   return "TO_DATE('$date', 'MM.DD.YYYY')";
 }
 
 /**

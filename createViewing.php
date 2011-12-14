@@ -11,7 +11,7 @@ if($_POST['submit']){
    $date = dbDate($_POST['date']);
    $comments = $_POST['comments'];
    
-   $comments = dbEscape( htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $comments), ENT_QUOTES) );
+   $comments = htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $comments), ENT_QUOTES);
    
    dbExec($db, "insert into viewing (id, client, associate, propertyId, viewDate, comments) values (key_viewing.nextval, $client, $associate, $property, $date, '$comments')");
    
