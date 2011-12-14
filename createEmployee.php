@@ -138,6 +138,7 @@ if($error){
                <?php
                //Umm, dont read this SQL. Seriously. Go away. Ignore it.
                $query = dbExec($db, 'select Supervisor.id, lastName, firstName from supervisor, employee where Supervisor.id = employee.id and supervisor.id not in (select supervisor from associate) union select sId as id, lastName, firstName from (select supervisor as sId, count(supervisor) as count from associate group by supervisor), employee where count < 12 and employee.id = sId');
+               //In simple terms, get all the supervisors with less than 12 associates
                while( ($row = dbFetchRow($query)) ){
                   echo "<option value=\"$row[0]\">$row[0] - $row[1], $row[2]</option>";
                }
