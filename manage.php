@@ -19,6 +19,7 @@ startPost('Manage Data');
    <li><a href="viewLease.php">View Lease Details</a></li>
    <li><a href="viewViewing.php">View Viewing Details</a></li>
    <li><a href="viewNewspaper.php">View Newspaper Details</a></li>
+   <li><a href="viewAd.php">View Advertisement Details</a></li>
 </ul>
 
 <br>
@@ -32,6 +33,7 @@ startPost('Manage Data');
    <li><a href="createLease.php">Create Lease</a></li>
    <li><a href="createViewing.php">Create Viewing</a></li>
    <li><a href="createNewspaper.php">Create Newspaper</a></li>
+   <li><a href="createAd.php">Create Advertisement</a></li>
 </ul>
 
 <br>
@@ -44,7 +46,7 @@ startPost('Manage Data');
    <li><a href="editProperty.php">Edit Property</a></li>
    <li><a href="editLease.php">Edit Lease</a></li>
    <li><a href="editViewing.php">Edit Viewing</a></li>
-   <li><a href="editNewspaper.php">Edit Newspaper</a></li>
+   <li><a href="editAd.php">Edit Advertisement</a></li>
 </ul>
 
 <br>
@@ -58,6 +60,7 @@ startPost('Manage Data');
    <li><a href="deleteLease.php">Delete Lease</a></li>
    <li><a href="deleteViewing.php">Delete Viewing</a></li>
    <li><a href="deleteNewspaper.php">Delete Newspaper</a></li>
+   <li><a href="deleteAd.php">Delete Advertisement</a></li>
 <ul>
 
 <?php

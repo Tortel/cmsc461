@@ -9,7 +9,6 @@ $id = $_GET['id'];
 $db = dbConnect();
 
 if((!$id && $id != 0) || !is_numeric($id)){
-   //Branch not selected, show option to select one
    
    $propertyQuery = dbExec($db, 'select id, street, city, state from property');
    

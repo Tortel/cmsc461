@@ -172,6 +172,7 @@ create table Business(
 );
 
 create table Advertisement(
+   id number(10) primary key,
    property number(10),
    printDate date,
    cost number(*,2),
@@ -361,4 +362,9 @@ MINVALUE 1
 START WITH 1
 INCREMENT BY 1;
 
+drop sequence key_ad;
+CREATE SEQUENCE key_ad
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1;
 
