@@ -16,6 +16,7 @@ startPost('Manage Data');
    <li><a href="viewClient.php">View Client Details</a></li>
    <li><a href="viewOwner.php">View Owner Details</a></li>
    <li><a href="viewProperty.php">View Property Details</a></li>
+   <li><a href="viewLease.php">View Lease Details</a></li>
 </ul>
 
 <br>
@@ -26,6 +27,7 @@ startPost('Manage Data');
    <li><a href="createClient.php">Create Client</a></li>
    <li><a href="createOwner.php">Create Owner</a></li>
    <li><a href="createProperty.php">Create Property</a></li>
+   <li><a href="createLease.php">Create Lease</a></li>
 </ul>
 
 <br>
@@ -36,6 +38,7 @@ startPost('Manage Data');
    <li><a href="editClient.php">Edit Client</a></li>
    <li><a href="editOwner.php">Edit Owner</a></li>
    <li><a href="editProperty.php">Edit Property</a></li>
+   <li><a href="editLease.php">Edit Lease</a></li>
 </ul>
 
 <br>
@@ -46,6 +49,7 @@ startPost('Manage Data');
    <li><a href="deleteClient.php">Delete Client</a></li>
    <li><a href="deleteOwner.php">Delete Owner</a></li>
    <li><a href="deleteProperty.php">Delete Property</a></li>
+   <li><a href="deleteLease.php">Delete Lease</a></li>
 <ul>
 
 <?php
