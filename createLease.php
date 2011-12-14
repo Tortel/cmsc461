@@ -16,7 +16,7 @@ if($_POST['submit']){
    if( !(!$rent || !$deposit || !$start || !$end || !$property || !$associate || !$client) ){
       //Create it
       dbExec($db, "insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values".
-      "(key_lease.nextval, $rent, $deposit, $start, $end, $client, $property, $associate)";
+      "(key_lease.nextval, $rent, $deposit, $start, $end, $client, $property, $associate)");
       //Update the property
       dbExec($db, "update property set rented = 'Y' where id = $property");
       

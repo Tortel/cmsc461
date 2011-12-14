@@ -57,7 +57,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Client:</td>
-         <td><a href="viewClient.php?id=<?php echo $row[4]">Client <?php echo $row[4] ?></a></td>
+         <td><a href="viewClient.php?id=<?php echo $row[4] ?>">Client <?php echo $row[4] ?></a></td>
       </tr>
       <tr>
          <td>Property:</td>
