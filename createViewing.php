@@ -7,7 +7,7 @@ $db = dbConnect();
 if($_POST['submit']){
    $property = $_POST['property'];
    $client = $_POST['client'];
-   $assocaite = $_POST['associate'];
+   $associate = $_POST['associate'];
    $date = dbDate($_POST['date']);
    $comments = $_POST['comments'];
    
@@ -74,7 +74,7 @@ startPost('Create Viewing');
       <tr>
          <td>Client Comments (4000 Character limit):</td>
          <td>
-            <textarea rows="3" cols="30" name="comments" id="comments"><?php echo $comments ?></textarea>
+            <textarea rows="4" cols="45" name="comments" id="comments"><?php echo $comments ?></textarea>
          </td>
       </tr>
       <tr>
