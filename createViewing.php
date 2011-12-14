@@ -9,7 +9,7 @@ if($_POST['submit']){
    $client = $_POST['client'];
    $assocaite = $_POST['associate'];
    $date = dbDate($_POST['date']);
-   $comments = htmlentities($_POST['comments'], ENT_QUOTES);
+   $comments = htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $_POST['comments']), ENT_QUOTES);
    
    dbExec($db, "insert into viewing (id, client, associate, property, viewDate, comments) values (key_viewing.nextval, $client, $associate, $property, $date, '$comments'");
    
@@ -72,7 +72,7 @@ startPost('Create Viewing');
       <tr>
          <td>Client Comments (4000 Character limit):</td>
          <td>
-            <textarea rows="3" cols="20" name="comments" id="comments"><?php echo $comments ?></textarea>
+            <textarea rows="3" cols="30" name="comments" id="comments"><?php echo $comments ?></textarea>
          </td>
       </tr>
       <tr>
