@@ -9,7 +9,9 @@ if($_POST['submit']){
    $client = $_POST['client'];
    $assocaite = $_POST['associate'];
    $date = dbDate($_POST['date']);
-   $comments = dbEscape( htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $_POST['comments']), ENT_QUOTES) );
+   $comments = $_POST['comments'];
+   
+   $comments = dbEscape( htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $comments), ENT_QUOTES) );
    
    dbExec($db, "insert into viewing (id, client, associate, property, viewDate, comments) values (key_viewing.nextval, $client, $associate, $property, $date, '$comments'");
    
