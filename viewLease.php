@@ -37,6 +37,8 @@ if((!$id && $id != 0) || !is_numeric($id)){
    startPost("Lease $id Details");
    
    $query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'DD.MM.YYYY'), TO_CHAR(endDate, 'DD.MM.YYYY'), client, property, associate from Lease where id = $id");
+   
+   $row = dbFetchRow($query);
    ?>
    <table>
       <tr>
