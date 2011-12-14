@@ -55,7 +55,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Comments:</td>
-         <td><?php echo $row[4]; ?></td>
+         <td><?php echo nl2br($row[4]); ?></td>
       </tr>
    </table>
    <?php

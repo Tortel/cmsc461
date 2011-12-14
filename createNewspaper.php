@@ -4,7 +4,6 @@ require_once('include/include.php');
 
 $db = dbConnect();
 
-//If they submitted the form
 if($_POST['submit']){
    
    //Prep the vars
@@ -14,10 +13,8 @@ if($_POST['submit']){
    $city = dbEscape($_POST['city']);
    $name = dbEscape($_POST['name']);
    $contact = dbEscape($_POST['contact']);
-   $business = $_POST['business'];
    $phone = $_POST['phone'];
    $fax = $_POST['fax'];
-   $type = $_POST['type'];
    
    if(!$street || !$city || !$state || !$zip || !$phone || !$fax){
       $error = true;
@@ -29,32 +26,24 @@ if($_POST['submit']){
    
    if(!$error){
       //Run the query
-      dbExec($db, "insert into Owner (id, street, city, state, zip, name, phone, fax, isBusiness) values ".
-         "(key_owner.nextval, '$street', '$city', '$state', '$zip', '$name', '$phone', '$fax', '$business')");
+      dbExec($db, "insert into Newspaper (id, street, city, state, zip, name, phone, fax, contactName) values ".
+         "(key_newspaper.nextval, '$street', '$city', '$state', '$zip', '$name', '$phone', '$fax', '$contact')");
       
-      if($business == 'Y'){
-         dbExec($db, "insert into Business (id, type, contactName) values (key_owner.CURRVAL, '$type', '$contact')");
-      }
-      
-      header("Location: viewOwner.php");
+      header("Location: viewNewspaper.php");
    }
+   
    
 }
 
-head('Create Owner');
+head('Create Newspaper');
 
-startPost('Create Owner');
-
-
-if($error){
-   echo '<b>There were errors submitting your request</b>';
-}
+startPost('Create Newspaper');
 
 ?>
 
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-   <input type="hidden" value="1" id="submit" name="submit" />
-   <table border="0">
+   <input type="hidden" id="submit" name="submit" value="1" />
+   <table>
       <tr>
          <td>Name:</td>
          <td><input type="text" size="30" id="name" name="name" value="<?php echo $name; ?>" /></td>
@@ -84,24 +73,13 @@ if($error){
          <td><input type="text" size="30" id="fax" name="fax" value="<?php echo $fax ?>" /></td>
       </tr>
       <tr>
-         <td>Business?</td>
-         <td>
-            <select name="business" id="business">
-               <option value="N">No</option>
-               <option value="Y">Yes</option>
-            </select>
-         </td>
-      </tr>
-      <tr>
-         <td>Business Type: (Ignored if not business)</td>
-         <td><input type="text" size="30" id="type" name="type" value="<?php echo $type ?>" /></td>
-      </tr>
-      <tr>
-         <td>Contact Name: (Ignored if not business)</td>
+         <td>Contact Name:</td>
          <td><input type="text" size="30" id="contact" name="contact" value="<?php echo $contact ?>" /></td>
       </tr>
       <tr>
-         <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
+         <td colspan="2" align="center">
+            <input type="submit" value="Submit" />
+         </td>
       </tr>
    </table>
 </form>
