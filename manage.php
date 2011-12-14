@@ -48,7 +48,6 @@ startPost('Manage Data');
    <li><a href="deleteProperty.php">Delete Property</a></li>
 <ul>
 
-
 <?php
 
 endPost();

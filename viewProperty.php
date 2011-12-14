@@ -36,7 +36,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
    exit();
 } else {
    
-   $query = dbExec($db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, rent, name, Owner.id from Property, owner where property.owner = owner.id and property.id = $id");
+   $query = dbExec($db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, minRent, maxRent, rent, posted, lastupdate, rented, associate, name, Owner.id from Property, owner where property.owner = owner.id and property.id = $id");
    
    $row = dbFetchRow($query);
    
@@ -63,12 +63,36 @@ if((!$id && $id != 0) || !is_numeric($id)){
          <td><?php echo $row[7]; ?></td>
       </tr>
       <tr>
-         <td>Rent:</td>
+         <td>Min Rent:</td>
          <td>$<?php echo $row[8]; ?></td>
       </tr>
       <tr>
+         <td>Max Rent:</td>
+         <td>$<?php echo $row[9]; ?></td>
+      </tr>
+      <tr>
+         <td>Rent:</td>
+         <td>$<?php echo $row[10]; ?></td>
+      </tr>
+      <tr>
+         <td>Posted:</td>
+         <td><?php echo $row[11]; ?></td>
+      </tr>
+      <tr>
+         <td>Last Updated:</td>
+         <td><?php echo $row[12]; ?></td>
+      </tr>
+      <tr>
+         <td>Rented:</td>
+         <td><?php echo $row[13]; ?></td>
+      </tr>
+      <tr>
+         <td>Managing Assocaite:</td>
+         <td><a href="viewEmployee.php?id=<?php echo $row[14]; ?>">Employee <?php echo $row[14]; ?></a></td>
+      </tr>
+      <tr>
          <td>Owner:</td>
-         <td><a href="viewOwner.php?id=<?php echo $row[10]; ?>"><?php echo $row[9]; ?></a></td>
+         <td><a href="viewOwner.php?id=<?php echo $row[16]; ?>"><?php echo $row[15]; ?></a></td>
       </tr>
    </table>
 

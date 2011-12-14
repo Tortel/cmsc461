@@ -125,11 +125,11 @@ create table Property(
    state varchar2(2),
    zip varchar2(5),
    type number(10),
-   bedrooms number(3,1),
-   bathrooms number(3,1),
+   bedrooms number(10,1),
+   bathrooms number(10,1),
    sqFoot number(*,2),
    rent number(*,2),
-   fee number(2,5),
+   fee decimal(10,5),
    rented char(1),
    posted date,
    lastUpdate date,
@@ -262,6 +262,9 @@ create or replace trigger check_associate
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
       end if;
+   EXCEPTION
+      when VALUE_ERROR then
+         dbms_output.put_line('Value_error raised');
    END;
 /
 
