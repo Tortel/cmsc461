@@ -235,8 +235,8 @@ create or replace trigger check_supervisor
    REFERENCING NEW as newRow
    for each row
    BEGIN
-      if( 'NEW.supervisor' is not null ) then
-         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = NEW.supervisor )' > 12 ) then
+      if( ':NEW.supervisor' is not null ) then
+         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = :NEW.supervisor )' > 12 ) then
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
@@ -257,14 +257,23 @@ create or replace trigger check_associate
    REFERENCING NEW as newRow
    for each row
    BEGIN
-      if( 'NEW.associate' is not null ) then
-         if( 'count( select Property.associate into x from Property where Property.associate = NEW.associate )' > 30) then
+      if( ':NEW.associate' is not null ) then
+         if( 'count( select Property.associate into x from Property where Property.associate = :NEW.associate )' > 30) then
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
       end if;
    EXCEPTION
       when VALUE_ERROR then
          dbms_output.put_line('Value_error raised');
+   END;
+/
+
+
+create or replace trigger mark_rented
+   before insert or update on Lease
+   for each row
+   BEGIN
+      update property set rented = 'Y' where id = :NEW.property;
    END;
 /
 

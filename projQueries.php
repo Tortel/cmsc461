@@ -7,7 +7,7 @@ head('Project Queries and Reports');
 startPost('Project Queries and Reports');
 ?>
 <p>Pick from the following queries:</p>
-<ul>
+<ol>
    <li><a href="cityBranches.php">List the details of branches in a given city.</a></li>
    <li><a href="stateBranches.php">Find the total number of branches in a given state.</a></li>
    <li><a href="branchEmployees.php">List name, position, and salary of all employees at a given branch, ordered by name.</a></li>
@@ -30,7 +30,7 @@ startPost('Project Queries and Reports');
    <li><a href="#">Find the total current monthly rental income, total monthly management fees, total salaries, as well as the maximum possible monthly rental income and management fee.</a></li>
    <li><a href="#">List the details of properties that have not been rented out for the last three months.</a></li>
    <li><a href="#">List the details of clients whose preferences match a given property.</a></li>
-</ul>
+</ol>
 <?php
 endPost();
 
