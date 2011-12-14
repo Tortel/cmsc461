@@ -13,7 +13,7 @@ if($_POST['submit']){
    
    $comments = dbEscape( htmlspecialchars( str_replace(array('\r\n', '\n', '\r'), '<br />', $comments), ENT_QUOTES) );
    
-   dbExec($db, "insert into viewing (id, client, associate, property, viewDate, comments) values (key_viewing.nextval, $client, $associate, $property, $date, '$comments')");
+   dbExec($db, "insert into viewing (id, client, associate, propertyId, viewDate, comments) values (key_viewing.nextval, $client, $associate, $property, $date, '$comments')");
    
    header("Location: viewViewing.php");
 }
