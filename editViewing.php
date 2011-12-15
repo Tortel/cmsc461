@@ -70,7 +70,7 @@ $row = dbFetchRow($query);
                while( ($prow = dbFetchRow($propertyQuery)) ){
                   if($row[0] == $prow[0]){
                      echo '<option value="'.$prow[0].'" selected>'.$prow[0].' - '.$prow[1].', '.$prow[2].', '.$prow[3].'</option>';
-                  } echo {
+                  } else {
                      echo '<option value="'.$prow[0].'">'.$prow[0].' - '.$prow[1].', '.$prow[2].', '.$prow[3].'</option>';
                   }
                }
