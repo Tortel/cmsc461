@@ -47,33 +47,33 @@ if( (!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Last Name:</td>
-         <td><?php echo $row[2]; ?></td>
+         <td><?php echo $row[1]; ?></td>
       </tr>
       <tr>
          <td>Address:</td>
          <td>
             <?php
-               echo $row[3].'<br>';
-               echo $row[4].', '.$row[5].'<br>';
-               echo $row[6];
+               echo $row[2].'<br>';
+               echo $row[3].', '.$row[4].'<br>';
+               echo $row[5];
             ?>
          </td>
       </tr>
       <tr>
          <td>Home Phone:</td>
-         <td><?php echo $row[7]; ?></td>
+         <td><?php echo $row[6]; ?></td>
       </tr>
       <tr>
          <td>Work Phone:</td>
-         <td><?php echo $row[8]; ?></td>
+         <td><?php echo $row[7]; ?></td>
       </tr>
       <tr>
          <td>Property Prefrence:</td>
-         <td><?php echo propertyType($row[9]); ?></td>
+         <td><?php echo propertyType($row[8]); ?></td>
       </tr>
       <tr>
          <td>Maximum Rent:</td>
-         <td>$<?php echo $row[10]; ?></td>
+         <td>$<?php echo $row[9]; ?></td>
       </tr>
       <tr>
          <td>Register Date:</td>
