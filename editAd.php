@@ -50,7 +50,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
 
 startPost('Edit Advertisement');
 
-$query = "select newspaperId, property, TO_CHAR(printDate, 'MM.DD.YYYY'), cost from Advertisement where id = $id");
+$query = dbExec($db, "select newspaperId, property, TO_CHAR(printDate, 'MM.DD.YYYY'), cost from Advertisement where id = $id");
 
 $row = dbFetchRow($query);
 
