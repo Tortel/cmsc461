@@ -305,55 +305,55 @@ grant All on Newspaper to CMSC461;
 /* No freaking auto-increment primary key? Are you kidding? */
 drop sequence key_branch;
 CREATE SEQUENCE key_branch
-MINVALUE 1
-START WITH 1
+MINVALUE 10
+START WITH 10
 INCREMENT BY 1;
 
 drop sequence key_employee;
 CREATE SEQUENCE key_employee
-MINVALUE 1
-START WITH 1
+MINVALUE 10
+START WITH 20
 INCREMENT BY 1;
 
 drop sequence key_client;
 CREATE SEQUENCE key_client
 MINVALUE 1
-START WITH 1
+START WITH 25
 INCREMENT BY 1;
 
 drop sequence key_viewing;
 CREATE SEQUENCE key_viewing
 MINVALUE 1
-START WITH 1
+START WITH 10
 INCREMENT BY 1;
 
 drop sequence key_property;
 CREATE SEQUENCE key_property
 MINVALUE 1
-START WITH 1
+START WITH 30
 INCREMENT BY 1;
 
 drop sequence key_lease;
 CREATE SEQUENCE key_lease
 MINVALUE 1
-START WITH 1
+START WITH 15
 INCREMENT BY 1;
 
 drop sequence key_owner;
 CREATE SEQUENCE key_owner
 MINVALUE 1
-START WITH 1
+START WITH 15
 INCREMENT BY 1;
 
 drop sequence key_newspaper;
 CREATE SEQUENCE key_newspaper
 MINVALUE 1
-START WITH 1
+START WITH 10
 INCREMENT BY 1;
 
 drop sequence key_ad;
 CREATE SEQUENCE key_ad
 MINVALUE 1
-START WITH 1
+START WITH 10
 INCREMENT BY 1;
 
