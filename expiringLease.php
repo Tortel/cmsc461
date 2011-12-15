@@ -4,8 +4,11 @@ require_once('include/include.php');
 
 $db = dbConnect();
 
-$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, associate from Lease where id = in (");
+head('Expiring Leases');
 
+startPost('Leases Expiring within One Month');
+
+$query = dbExec($db, 'select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, associate from Lease where id in (select id from lease where MONTHS_BETWEEN(endDate, CURRENT_DATE) < 1 and MONTHS_BETWEEN(endDate, CURRENT_DATE) >= 0)');
 
 
 $row = dbFetchRow($query);
