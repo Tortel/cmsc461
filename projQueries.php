@@ -29,7 +29,7 @@ startPost('Project Queries and Reports');
    <li><a href="stateCount.php">For each state, list the total number of leases with rental duration less than 12 months.</a></li>
    <li><a href="income.php">Find the total current monthly rental income, total monthly management fees, total salaries, as well as the maximum possible monthly rental income and management fee.</a></li>
    <li><a href="notRented.php">List the details of properties that have not been rented out for the last three months.</a></li>
-   <li><a href="#">List the details of clients whose preferences match a given property.</a></li>
+   <li><a href="clientProperties.php">List the details of clients whose preferences match a given property.</a></li>
 </ol>
 <?php
 endPost();
