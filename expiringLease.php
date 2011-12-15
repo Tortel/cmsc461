@@ -43,7 +43,7 @@ $query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO
 
 
 while( ($row = dbFetchRow($query)) ){
-   echo "<b>Lease $row[7]</b>";
+   echo '<b>Lease '.$row[7].'</b>';
    ?>
    <table>
       <tr>
