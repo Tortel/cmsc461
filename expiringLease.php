@@ -39,10 +39,11 @@ if((!$id && $id != 0) || !is_numeric($id)){
 
 startPost('Leases Expiring within One Month');
 
-$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property from Lease, Employee where Lease.id in (select id from lease where MONTHS_BETWEEN(endDate, CURRENT_DATE) < 1 and MONTHS_BETWEEN(endDate, CURRENT_DATE) >= 0) and Employee.id = associate and Employee.branch = $id");
+$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, Lease.id from Lease, Employee where Lease.id in (select id from lease where MONTHS_BETWEEN(endDate, CURRENT_DATE) < 1 and MONTHS_BETWEEN(endDate, CURRENT_DATE) >= 0) and Employee.id = associate and Employee.branch = $id");
 
 
 while( ($row = dbFetchRow($query)) ){
+   echo "<b>Lease $row[7]</b>";
    ?>
    <table>
       <tr>
@@ -74,6 +75,7 @@ while( ($row = dbFetchRow($query)) ){
          <td><a href="viewEmployee.php?id=<?php echo $row[6] ?>">Employee <?php echo $row[6] ?></a></td>
       </tr>
    </table>
+   <br />
    <?php
 }
 
