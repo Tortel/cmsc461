@@ -35,6 +35,8 @@ if((!$id && $id != 0) || !is_numeric($id)){
    exit();
 }
 
+startPost("Clients that match Property $id");
+
 $query = dbExec($db, "Select firstName, lastName, street, city, state, zip, phone, workphone, propertyType, maxRent, registerDate, associate, branch from Client where id in (select client.id from client, property where rent <= client.maxRent and propertyType = property.type and property.id = $id)");
 
 while( ($row = dbFetchRow($query)) ){
