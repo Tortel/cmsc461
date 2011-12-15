@@ -36,7 +36,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
    
    startPost("Lease $id Details");
    
-   $query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, associate from Lease where id = $id");
+   $query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, associate, MONTHS_BETWEEN(endDate, startDate) from Lease where id = $id");
    
    $row = dbFetchRow($query);
    ?>
@@ -56,6 +56,10 @@ if((!$id && $id != 0) || !is_numeric($id)){
       <tr>
          <td>End Date:</td>
          <td><?php echo $row[3] ?></td>
+      </tr>
+      <tr>
+         <td>Duration:</td>
+         <td><?php echo $row[7] ?> Months</td>
       </tr>
       <tr>
          <td>Client:</td>
