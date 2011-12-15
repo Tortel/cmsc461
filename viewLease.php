@@ -59,7 +59,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
       </tr>
       <tr>
          <td>Duration:</td>
-         <td><?php echo $row[7] ?> Months</td>
+         <td><?php echo round($row[7],2) ?> Months</td>
       </tr>
       <tr>
          <td>Client:</td>

@@ -64,7 +64,7 @@ while( ($row = dbFetchRow($query)) ){
       </tr>
       <tr>
          <td>Duration:</td>
-         <td><?php echo $row[8] ?> Months</td>
+         <td><?php echo round($row[8],2) ?> Months</td>
       </tr>
       <tr>
          <td>Client:</td>
