@@ -36,7 +36,7 @@ if($_POST['submit']){
    if(!$error){
       //Run the query
       dbExec($db, "update Property set street = '$street', city = '$city', state = '$state', zip = '$zip', type = $type, bedrooms = $bedrooms, bathrooms = $bathrooms, sqFoot = $sqft, ".
-      "rent = $rent, fee = $fee, rented = '$rented', minRent = $min, maxRent = $max, associate = $associate, owner = $owner, lastUpdated = CURRENT_DATE where id = $id "); 
+      "rent = $rent, fee = $fee, rented = '$rented', minRent = $min, maxRent = $max, associate = $associate, owner = $owner, lastUpdate = CURRENT_DATE where id = $id "); 
       
       header("Location: viewProperty.php");
    }
