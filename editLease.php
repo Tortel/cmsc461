@@ -85,7 +85,7 @@ $row = dbFetchRow($query);
          <td>Property:</td>
          <td>
             <select id="property" name="property">
-            <option value="<?php echo $row[4] ?">Property <?php echo $row[4] ?></option>
+            <option value="<?php echo $row[4] ?>">Property <?php echo $row[4] ?></option>
             <?php
                $propertyQuery = dbExec($db, 'select id, street, city, state from property where rented = \'N\'');
                while( ($prow = dbFetchRow($propertyQuery)) ){
