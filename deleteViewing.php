@@ -8,7 +8,7 @@ $id = $_GET['id'];
 
 if((!$id && $id != 0) || !is_numeric($id)){
    head('View Viewing');
-   $viewQuery = dbExec($db, 'select id, propertyId, TO_CHAR(viewDate, \'DD.MM.YYYY\') from viewing');
+   $viewQuery = dbExec($db, 'select id, propertyId, TO_CHAR(viewDate, \'MM.DD.YYYY\') from viewing');
    
    startPost('Select Viewing');
    ?>

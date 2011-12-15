@@ -95,7 +95,7 @@ if( (!$id && $id != 0) || !is_numeric($id)){
    exit();
 } else {
    //Get the employee details
-   $employeeQuery = dbExec($db, "select firstname, lastname, sex, TO_CHAR(birthday, 'DD.MM.YYYY'), street, city, state, zip, salary, branch from Employee where id = $id");
+   $employeeQuery = dbExec($db, "select firstname, lastname, sex, TO_CHAR(birthday, 'MM.DD.YYYY'), street, city, state, zip, salary, branch from Employee where id = $id");
    
    $row = dbFetchRow($employeeQuery);
    

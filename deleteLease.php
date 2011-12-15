@@ -10,7 +10,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
    
    head('Delete Lease');
    
-   $leaseQuery = dbExec($db, 'select id, TO_CHAR(startDate, \'DD.MM.YYYY\'), TO_CHAR(endDate, \'DD.MM.YYYY\'), property from lease');
+   $leaseQuery = dbExec($db, 'select id, TO_CHAR(startDate, \'MM.DD.YYYY\'), TO_CHAR(endDate, \'MM.DD.YYYY\'), property from lease');
    
    startPost('Select Lease');
    ?>

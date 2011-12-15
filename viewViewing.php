@@ -9,7 +9,7 @@ head('View Viewing');
 $id = $_GET['id'];
 
 if((!$id && $id != 0) || !is_numeric($id)){
-   $viewQuery = dbExec($db, 'select id, propertyId, TO_CHAR(viewDate, \'DD.MM.YYYY\') from viewing');
+   $viewQuery = dbExec($db, 'select id, propertyId, TO_CHAR(viewDate, \'MM.DD.YYYY\') from viewing');
    
    startPost('Select Viewing');
    ?>
@@ -36,7 +36,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
    
    startPost("Viewing $id");
    
-   $query = dbExec($db, "select client, associate, propertyid, TO_CHAR(viewDate, 'DD.MM.YYYY'), comments from viewing where id = $id");
+   $query = dbExec($db, "select client, associate, propertyid, TO_CHAR(viewDate, 'MM.DD.YYYY'), comments from viewing where id = $id");
    
    $row = dbFetchRow($query);
    ?>
