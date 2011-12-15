@@ -109,7 +109,7 @@ $row = dbFetchRow($query);
          <td>Property Type:</td>
          <td>
             <select id="type" name="type">
-               <?php echo '<option value="'.row[4].'">'.propertyType($row[4]).'</option>'; ?>
+               <?php echo '<option value="'.$row[4].'">'.propertyType($row[4]).'</option>'; ?>
                <option value="0"><?php echo propertyType(0); ?></option>
                <option value="1"><?php echo propertyType(1); ?></option>
                <option value="2"><?php echo propertyType(2); ?></option>
