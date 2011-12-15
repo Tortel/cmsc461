@@ -41,13 +41,13 @@ drop table Newspaper purge;
 
 create table Branch(
    id number(10) primary key,
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   phone varchar2(10),
-   fax varchar2(10),
-   manager number(10)
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   phone varchar2(10) not null,
+   fax varchar2(10) not null,
+   manager number(10) not null
 );
 
 /* Add a default branch */
@@ -57,7 +57,7 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 
 create table Manager(
    id number(10) unique,
-   begin date,
+   begin date not null,
    bonus number(*,2)
 );
 
@@ -66,16 +66,16 @@ insert into Manager (id, begin, bonus) values (0, CURRENT_DATE, 100);
 
 create table Employee(
    id number(10) primary key,
-   firstName varchar2(100),
-   lastName varchar2(100),
-   sex varchar2(1),
-   birthday Date,
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   salary number(*,2),
-   branch number(10)
+   firstName varchar2(100) not null,
+   lastName varchar2(100) not null,
+   sex varchar2(1) not null,
+   birthday Date not null,
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   salary number(*,2) not null,
+   branch number(10) not null
 );
 
 /* And a default employee */
@@ -83,112 +83,112 @@ insert into Employee (id, firstName, lastName, sex, birthday, street, city, stat
    (0, 'Default', 'Employee', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 100, 0);
 
 create table Supervisor(
-   id number(10) unique
+   id number(10) unique not null
 );
 
 create table Associate(
-   id number(10) unique,
+   id number(10) unique not null,
    supervisor number(10)
 );
 
 create table Client(
    id number(10) primary key,
-   firstName varchar2(100),
-   lastName varchar2(100),
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   phone varchar2(10),
-   workphone varchar2(10),
-   propertyType number(10),
-   maxRent number(*,2),
-   associate number(10),
-   registerDate Date,
-   branch number(10)
+   firstName varchar2(100) not null,
+   lastName varchar2(100) not null,
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   phone varchar2(10) not null,
+   workphone varchar2(10) not null,
+   propertyType number(10) not null,
+   maxRent number(*,2) not null,
+   associate number(10) not null,
+   registerDate Date not null,
+   branch number(10) not null
 );
 
 create table Viewing(
    id number(10) primary key,
-   client number(10),
-   associate number(10),
-   propertyId number(10),
-   viewDate date,
+   client number(10) not null,
+   associate number(10) not null,
+   propertyId number(10) not null,
+   viewDate date not null,
    comments varchar2(4000)
 );
 
 /* Might need to adjust rent, depending on adaptive rent service */
 create table Property(
    id number(10) primary key,
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   type number(10),
-   bedrooms number(10,1),
-   bathrooms number(10,1),
-   sqFoot number(*,2),
-   rent number(*,2),
-   fee decimal(10,5),
-   rented char(1),
-   posted date,
-   lastUpdate date,
-   maxRent number(*,2),
-   minRent number(*,2),
-   associate number(10),
-   owner number(10),
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   type number(10) not null,
+   bedrooms number(10,1) not null,
+   bathrooms number(10,1) not null,
+   sqFoot number(*,2) not null,
+   rent number(*,2) not null,
+   fee decimal(10,5) not null,
+   rented char(1) not null,
+   posted date not null,
+   lastUpdate date not null,
+   maxRent number(*,2) not null,
+   minRent number(*,2) not null,
+   associate number(10) not null,
+   owner number(10) not null,
    constraint boolean_prop check (rented in ('Y', 'N'))
 );
 
 /* Duration is derived from endDate - startDate */
 create table Lease(
    id number(10) primary key,
-   rent number(*,2),
-   deposit number(*,2),
-   startDate date,
-   endDate date,
-   client number(10),
-   property number(10),
-   associate number(10)
+   rent number(*,2) not null,
+   deposit number(*,2) not null,
+   startDate date not null,
+   endDate date not null,
+   client number(10) not null,
+   property number(10) not null,
+   associate number(10) not null
 );
 
 create table Owner(
    id number(10) primary key,
-   name varchar2(100),
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   phone varchar2(10),
-   fax varchar2(10),
-   isBusiness char(1),
+   name varchar2(100) not null,
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   phone varchar2(10) not null,
+   fax varchar2(10) not null,
+   isBusiness char(1) not null,
    constraint boolean_owner check (isBusiness in ('Y', 'N'))
 );
 
 create table Business(
-   id number(10),
-   type varchar2(100),
-   contactName varchar2(100)
+   id number(10) not null,
+   type varchar2(100) not null,
+   contactName varchar2(100) not null
 );
 
 create table Advertisement(
    id number(10) primary key,
-   property number(10),
-   printDate date,
-   cost number(*,2),
-   newspaperId number(10)
+   property number(10) not null,
+   printDate date not null,
+   cost number(*,2) not null,
+   newspaperId number(10) not null
 );
 
 create table Newspaper(
    id number(10) primary key,
-   name varchar2(100),
-   street varchar2(250),
-   city varchar2(250),
-   state varchar2(2),
-   zip varchar2(5),
-   phone varchar2(10),
-   fax varchar2(10),
-   contactName varchar2(100)
+   name varchar2(100) not null,
+   street varchar2(250) not null,
+   city varchar2(250) not null,
+   state varchar2(2) not null,
+   zip varchar2(5) not null,
+   phone varchar2(10) not null,
+   fax varchar2(10) not null,
+   contactName varchar2(100) not null
 );
 
 
@@ -226,11 +226,6 @@ alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES
 /* Need a function to calculate the average popularity since a given date */
 
 /*
-Needs to be a trigger:
-constraint) check_associate ( count(select s.id from Supervisor as s where s.id = id) <= 6 )
-*/
-
-
 create or replace trigger check_supervisor
    before insert or update on Associate
    REFERENCING NEW as newRow
@@ -247,12 +242,6 @@ create or replace trigger check_supervisor
    END;
 /
 
-
-/*
-Needs to be a trigger:
-constraint check_ check ( count(select a.id from Associate as a where a.id = associate) <= 30 )
-*/
-
 create or replace trigger check_associate
    before insert or update on Property
    REFERENCING NEW as newRow
@@ -268,7 +257,7 @@ create or replace trigger check_associate
          dbms_output.put_line('Value_error raised');
    END;
 /
-
+*/
 
 create or replace trigger mark_rented
    before insert or update on Lease
