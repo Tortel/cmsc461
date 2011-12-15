@@ -36,7 +36,7 @@ if($_POST['submit']){
    if(!$error){
       //Run the query
       dbExec($db, "update Property set street = '$street', city = '$city', state = '$state', zip = '$zip', type = $type, bedrooms = $bedrooms, bathrooms = $bathrooms, sqFoot = $sqft, ".
-      "rent = $rent, fee = $fee, rented = '$rented', minRent = $min, maxRent = $max, associate = $associate, owner = $owner where id = $id "); 
+      "rent = $rent, fee = $fee, rented = '$rented', minRent = $min, maxRent = $max, associate = $associate, owner = $owner, lastUpdated = CURRENT_DATE where id = $id "); 
       
       header("Location: viewProperty.php");
    }
@@ -48,6 +48,7 @@ $id = $_GET['id'];
 $db = dbConnect();
 
 if((!$id && $id != 0) || !is_numeric($id)){
+   head('Edit Property');
    
    $propertyQuery = dbExec($db, 'select id, street, city, state from property');
    
@@ -75,9 +76,9 @@ if((!$id && $id != 0) || !is_numeric($id)){
 }
 
 
-head('Edit Employee');
+head('Edit Property');
 
-startPost('Edit Employee');
+startPost('Edit Property');
 
 $query = dbExec($db, "select street, city, state, zip, type, bedrooms, bathrooms, sqfoot, minRent, rent, maxrent, fee, associate, owner, rented from property where id = $id");
 
