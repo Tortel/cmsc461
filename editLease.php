@@ -23,12 +23,12 @@ if($_POST['submit']){
 
 }
 
-head('View Lease');
+head('Edit Lease');
 
 $id = $_GET['id'];
 
 if((!$id && $id != 0) || !is_numeric($id)){
-   $leaseQuery = dbExec($db, 'select id, TO_CHAR(startDate, \'DD.MM.YYYY\'), TO_CHAR(endDate, \'DD.MM.YYYY\'), property from lease');
+   $leaseQuery = dbExec($db, 'select id, TO_CHAR(startDate, \'MM.DD.YYYY\'), TO_CHAR(endDate, \'MM.DD.YYYY\'), property from lease');
    
    startPost('Select Lease');
    ?>
@@ -55,7 +55,7 @@ if((!$id && $id != 0) || !is_numeric($id)){
 
 startPost('Edit Lease');
 
-$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), property, client, associate from Lease");
+$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), property, client, associate from Lease where id = $id");
 
 $row = dbFetchRow($query);
 
@@ -63,6 +63,7 @@ $row = dbFetchRow($query);
 
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
    <input type="hidden" id="submit" name="submit" value="1" />
+   <input type="hidden" id="id" name="id" value="<?php echo $id ?>" />
    <table>
       <tr>
          <td>Monthly Rent:</td>
