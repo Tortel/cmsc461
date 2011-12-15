@@ -2,7 +2,7 @@
 
 require_once('include/include.php');
 
-$db = dbConnectt();
+$db = dbConnect();
 
 if($_POST['submit']){
    $property = $_POST['property'];
