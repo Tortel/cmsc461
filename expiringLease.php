@@ -6,9 +6,40 @@ $db = dbConnect();
 
 head('Expiring Leases');
 
+$id = $_GET['id'];
+
+
+if((!$id && $id != 0) || !is_numeric($id)){
+   //Branch not selected, show option to select one
+   
+   $branchesQuery = dbExec($db, 'select id, city, state from Branch');
+   
+   startPost('Select Branch');
+   ?>
+   <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
+      <select name="id" id="id">
+      <?php
+         while( ($row = dbFetchRow($branchesQuery)) ){
+            echo '<option value="'.$row[0].'">'.$row[0].' - '.$row[1].', '.$row[2].'</option>';
+         }
+      ?>
+      </select>
+      
+      <br>
+      <input type="submit" value="Submit">
+   </form>
+   <?php
+   
+   endPost();
+   
+   foot();
+   
+   exit();
+}
+
 startPost('Leases Expiring within One Month');
 
-$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property, associate from Lease where id in (select id from lease where MONTHS_BETWEEN(endDate, CURRENT_DATE) < 1 and MONTHS_BETWEEN(endDate, CURRENT_DATE) >= 0)");
+$query = dbExec($db, "select rent, deposit, TO_CHAR(startDate, 'MM.DD.YYYY'), TO_CHAR(endDate, 'MM.DD.YYYY'), client, property from Lease, Employee where Lease.id in (select id from lease where MONTHS_BETWEEN(endDate, CURRENT_DATE) < 1 and MONTHS_BETWEEN(endDate, CURRENT_DATE) >= 0) and Employee.id = associate and Employee.branch = $id");
 
 
 while( ($row = dbFetchRow($query)) ){
