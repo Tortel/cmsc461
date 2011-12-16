@@ -54,7 +54,7 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
    <?php
    
    while( ($row = dbFetchRow($employees)) ){
-      echo '<tr>'
+      echo '<tr>';
       echo "<td>$row[1], $row[2]</td>";
       $statusQuery = dbExec($db, "select count(id) from manager where id = $row[0]");
       $manager = dbFetchRow($statusQuery);
