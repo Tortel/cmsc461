@@ -29,6 +29,8 @@ if($_POST['submit']){
    if(!$error){
       //This is where the new branch is acutally created
       
+      dbExec($db, "delete from associate where id = $manager");
+      
       //Need to add the manager to the Manager table
       dbExec($db, "insert into Manager (id, begin, bonus) values ($manager, CURRENT_DATE, 5000)");
       
@@ -84,13 +86,13 @@ if($error){
          <td>Fax Number (No spaces):</td>
          <td><input type="text" size="30" id="fax" name="fax" value="<?php echo $fax ?>" /></td>
       </tr>
-         <td>Manager:</td>
+         <td>Manager:<br>(Current associate with no client/properties)</td>
          <td>
             <select name="manager" id="manager">
             <?php
                //Might want this to be a trigger too
                $managers = dbExec($db, 'select Employee.id, firstname, lastname from employee where Employee.id not in'.
-                  ' (select Associate.id from associate union select Supervisor.id from supervisor union select Manager.id from Manager)');
+                  ' (select Supervisor.id from supervisor union select Manager.id from Manager)');
                while( ($row = dbFetchRow($managers)) ){
                   echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
                }
