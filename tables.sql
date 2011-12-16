@@ -249,6 +249,20 @@ create or replace trigger check_associate
       end if;
    END;
 /
+
+
+create or replace trigger checkViewing
+   before insert or update on Viewing
+   for each row
+   BEGIN
+      if('select count(id) from viewing where client = :NEW.client and propertyId = :NEW.propertyId and viewDate = :NEW.viewDate' > '0') then
+         RAISE_APPLICATION_ERROR(-20000, 'Can only view a property once per day');
+      end if;
+   EXCEPTION
+      when VALUE_ERROR then
+         dbms_output.put_line('Value_error raised');
+   END;
+/
 */
 
 
@@ -285,19 +299,6 @@ create or replace trigger adaptiveRentIncrease
          update property set rent = 1.05*rent where id = :NEW.propertyId;
          update property set rent = maxrent where rent > maxrent;
       end if;
-   END;
-/
-
-create or replace trigger checkViewing
-   before insert or update on Viewing
-   for each row
-   BEGIN
-      if('select count(id) from viewing where client = :NEW.client and propertyId = :NEW.propertyId and viewDate = :NEW.viewDate' > '0') then
-         RAISE_APPLICATION_ERROR(-20000, 'Can only view a property once per day');
-      end if;
-   EXCEPTION
-      when VALUE_ERROR then
-         dbms_output.put_line('Value_error raised');
    END;
 /
 
