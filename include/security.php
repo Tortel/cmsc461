@@ -3,7 +3,7 @@ session_start();
  
 if(!session_is_registered(loggedIn)){
   header("location:login.php");
-
+}
 
 function login($user, $pass){
    if(($user == 'associate' || $user == 'manager') && $password == 'secret'){
@@ -17,6 +17,5 @@ function login($user, $pass){
 function logout(){
    session_start();
    session_destroy();
-   
 }
 ?>
