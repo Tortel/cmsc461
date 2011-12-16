@@ -36,7 +36,7 @@ insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) v
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
    (2, 'IL Business Owner', '345 East Street', 'Normal', 'IL', '61761', '4100000000', '4100000000', 'Y');
 insert into Business (id, type, contactName) values
-   (3, 'Apartment Business', 'Person McContact');
+   (2, 'Apartment Business', 'Person McContact');
 
 /* Properties */
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
@@ -44,11 +44,11 @@ insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, s
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
    (2, '404 W Locust St', 'Normal', 'IL', '61761', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 3, 2);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (3, '405 E Locust St', 'Normal', 'IL', '61761', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 3, 3);
+   (3, '405 E Locust St', 'Normal', 'IL', '61761', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 3, 1);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
    (4, '406 E Locust St', 'Normal', 'IL', '61761', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 3, 2);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (5, '407 S Locust St', 'Normal', 'IL', '61761', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 3, 3);
+   (5, '407 S Locust St', 'Normal', 'IL', '61761', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 3, 1);
 
 /* Clients */
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
@@ -79,15 +79,15 @@ insert into viewing (id, client, associate, propertyId, viewDate, comments) valu
 
 /* Branch 2 - Baltimore, MD */
 insert into Branch (id, street, city, state, zip, phone, fax, manager) values
-   (1, '402 W Pratt St', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 1);
+   (2, '402 W Pratt St', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 1);
 
 /* Employees */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (4, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 1);
+   (4, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (5, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 1);
+   (5, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (6, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 1);
+   (6, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (4, CURRENT_DATE, 500);
@@ -96,33 +96,33 @@ insert into Associate (id, supervisor) values (6, 5);
 
 /* Owners */
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
-   (4, 'MD Private Owner', '543 West Street', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 'N');
+   (3, 'MD Private Owner', '543 West Street', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 'N');
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
-   (5, 'MD Business Owner', '345 East Street', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 'Y');
+   (4, 'MD Business Owner', '345 East Street', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 'Y');
 insert into Business (id, type, contactName) values
-   (6, 'Apartment Business', 'George Winters');
+   (4, 'Apartment Business', 'George Winters');
 
 /* Properties */
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
    (6, '403 W Pratt St', 'Baltimore', 'MD', '21250', 0, 2, 2, 700, 900, 13, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 700, 1100, 6, 4);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (7, '404 W Pratt St', 'Baltimore', 'MD', '21250', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 6, 5);
+   (7, '404 W Pratt St', 'Baltimore', 'MD', '21250', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 6, 3);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (8, '405 E Pratt St', 'Baltimore', 'MD', '21250', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 6, 5);
+   (8, '405 E Pratt St', 'Baltimore', 'MD', '21250', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 6, 4);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (9, '406 E Pratt St', 'Baltimore', 'MD', '21250', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 6, 6);
+   (9, '406 E Pratt St', 'Baltimore', 'MD', '21250', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 6, 3);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (10, '407 S Pratt St', 'Baltimore', 'MD', '21250', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 6, 6);
+   (10, '407 S Pratt St', 'Baltimore', 'MD', '21250', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 6, 4);
 
 /* Clients */
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (5, '200 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 1', 'Maryland', 1, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
+   (5, '200 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 1', 'Maryland', 2, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (6, '201 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 2', 'Maryland', 1, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
+   (6, '201 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 2', 'Maryland', 2, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (7, '202 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 3', 'Maryland', 1, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
+   (7, '202 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 3', 'Maryland', 2, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (8, '203 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 4', 'Maryland', 1, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
+   (8, '203 W Pratt St', 'Baltimore', 'MD', '21250', 'Client 4', 'Maryland', 2, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
 
 /* Leases */
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
