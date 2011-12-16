@@ -225,14 +225,13 @@ alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES
 
 /* Need a function to calculate the average popularity since a given date */
 
-/*
 create or replace trigger check_supervisor
    before insert or update on Associate
    REFERENCING NEW as newRow
    for each row
    BEGIN
       if( ':NEW.supervisor' is not null ) then
-         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = :NEW.supervisor )' > 12 ) then
+         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = :NEW.supervisor )' > '12' ) then
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
@@ -248,16 +247,13 @@ create or replace trigger check_associate
    for each row
    BEGIN
       if( ':NEW.associate' is not null ) then
-         if( 'count( select Property.associate into x from Property where Property.associate = :NEW.associate )' > 30) then
+         if( 'count( select Property.associate into x from Property where Property.associate = :NEW.associate )' > '30') then
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
       end if;
-   EXCEPTION
-      when VALUE_ERROR then
-         dbms_output.put_line('Value_error raised');
    END;
 /
-*/
+
 
 create or replace trigger mark_rented
    before insert or update on Lease
@@ -299,8 +295,8 @@ create or replace trigger checkViewing
    before insert or update on Viewing
    for each row
    BEGIN
-      if('select count(id) from viewing where client = :NEW.client and propertyId = :NEW.propertyId and date = :NEW.date' > 0) then
-         RAISE_APPLICATION_ERROR(-2000, 'Can only view a property once per day');
+      if('select count(id) from viewing where client = :NEW.client and propertyId = :NEW.propertyId and viewDate = :NEW.viewDate' > '0') then
+         RAISE_APPLICATION_ERROR(-20000, 'Can only view a property once per day');
       end if;
    END;
 /
