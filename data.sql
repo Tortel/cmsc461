@@ -1,10 +1,6 @@
 /* Disable FKs between branch/manager */
 alter table Branch disable constraint branch_fk1;
 
-delete from employee where branch = 0;
-delete from Branch where id = 0;
-delete from manager where branch = 0;
-
 /* 5 Branches, 3 states 
  * 
  * Per branch:
@@ -155,16 +151,16 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 
 /* Employees */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (7, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+   (7, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (8, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+   (8, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (9, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+   (9, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 
 /* Give them positions */
-insert into Manager (id, begin, bonus) values (4, CURRENT_DATE, 500);
-insert into Supervisor (id) values (5);
-insert into Associate (id, supervisor) values (6, 5);
+insert into Manager (id, begin, bonus) values (7, CURRENT_DATE, 500);
+insert into Supervisor (id) values (8);
+insert into Associate (id, supervisor) values (9, 8);
 
 /* Owners */
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
