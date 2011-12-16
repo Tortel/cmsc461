@@ -1,7 +1,6 @@
 <?php
 
 include('include/include.php');
-check();
 
 if($_POST['username'] && $_POST['password']){
    if(login($_POST['username'], $_POST['password'])){
