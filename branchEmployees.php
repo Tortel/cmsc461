@@ -40,16 +40,14 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
    
    //Name, position, salary ordered by name
    
-   echo 'Need to finish. How to get position?';
-   
    $employees = dbExec($db, "select id, lastName, firstName, salary from employee where branch = $branch");
    
    ?>
    <table>
    <tr>
-      <td>Name</td>
-      <td>Position</td>
-      <td>Salary</td>
+      <td><b>Name</b></td>
+      <td><b>Position</b></td>
+      <td><b>Salary</b></td>
    </tr>
    <?php
    
