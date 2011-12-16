@@ -1,6 +1,7 @@
 <?php
 
 include('include/include.php');
+check();
 
 if($_POST['username'] && $_POST['password']){
    if(login($_POST['username'], $_POST['password'])){
@@ -18,11 +19,11 @@ startPost('Log in');
 <table>
 <tr>
 <td>Username:</td>
-<td><input type="text" size="30" name="username" id="username" /></td>
+<td><input type="text" size="20" name="username" id="username" /></td>
 </tr>
 <tr>
 <td>Password:</td>
-<td><input type="password" size="30" name="password" id="password" /></td>
+<td><input type="password" size="20" name="password" id="password" /></td>
 </tr>
 <tr>
 <td colspan="2" align="center"><input type="submit" value="Submit" /></td>

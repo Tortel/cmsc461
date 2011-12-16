@@ -1,6 +1,7 @@
 <?
 
 require_once('include/include.php');
+check();
 
 $db = dbConnect();
 

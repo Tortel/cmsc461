@@ -30,6 +30,7 @@ function head($title = 'Mars Realty'){
 				<li><a href="index.php">Home</a></li>
 				<li><a href="manage.php">Manage Data</a></li>
 				<li><a href="projQueries.php">Project Queries</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
 		

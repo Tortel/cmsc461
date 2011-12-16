@@ -8,7 +8,7 @@ function check(){
 }
 
 function login($user, $pass){
-   if(($user == 'associate' || $user == 'manager') && $password == 'secret'){
+   if(($user == 'associate' || $user == 'manager') && $pass == 'secret'){
       session_register('loggedIn');
       return true;
    }

@@ -1,6 +1,7 @@
 <?php
 
 require_once('include/include.php');
+check();
 
 head('State Branch Count');
 
