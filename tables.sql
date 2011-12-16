@@ -223,15 +223,14 @@ alter table Business add constraint business_fk1 foreign key(id) REFERENCES Owne
 alter table Advertisement add constraint ad_fk1 foreign key(newspaperId) REFERENCES Newspaper(id);
 alter table Advertisement add constraint ad_fk2 foreign key(property) REFERENCES Property(id);
 
-/* Need a function to calculate the average popularity since a given date */
-
+/*
 create or replace trigger check_supervisor
    before insert or update on Associate
    REFERENCING NEW as newRow
    for each row
    BEGIN
       if( ':NEW.supervisor' is not null ) then
-         if( 'count( select Associate.supervisor into x from Associate where Associate.supervisor = :NEW.supervisor )' > '12' ) then
+         if( 'select count(Associate.supervisor) from Associate where Associate.supervisor = :NEW.supervisor' > '12' ) then
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
@@ -244,12 +243,13 @@ create or replace trigger check_associate
    for each row
    BEGIN
       if( ':NEW.associate' is not null ) then
-         if( 'count( select Property.associate into x from Property where Property.associate = :NEW.associate )' > '30') then
+         if( 'select count(Property.associate) from Property where Property.associate = :NEW.associate' > '30') then
             RAISE_APPLICATION_ERROR(-20000, 'Associate can only manage 30 properties');
          end if;
       end if;
    END;
 /
+*/
 
 
 create or replace trigger mark_rented
