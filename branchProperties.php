@@ -43,7 +43,7 @@ if( (!$branch && $branch != 0) || !is_numeric($branch)){
    while( ($associateRow = dbFetchRow($associates)) ){
       echo '<b>'.$associateRow[2].', '.$associateRow[1].'</b>';
       
-      $propertyQuery = dbExec($db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, rent, name, Owner.id from Property, owner where property.owner = owner.id and rented = 'N' and property.associate = $associaterow[0] order by rent asc");
+      $propertyQuery = dbExec($db, "Select Property.street, Property.city, property.state, Property.zip, type, bedrooms, bathrooms, sqfoot, rent, name, Owner.id from Property, owner where property.owner = owner.id and rented = 'N' and property.associate = $associateRow[0] order by rent asc");
       
       while( ($row = dbFetchRow($propertyQuery)) ){
          ?>

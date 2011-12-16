@@ -34,6 +34,8 @@ while( ($row = dbFetchRow($query)) ){
       <td>Private Owner</td>
    </tr>
    </table>
+   <br />
+   <br />
    <?php
 }
 
