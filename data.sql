@@ -1,6 +1,17 @@
 /* Disable FKs between branch/manager */
 alter table Branch disable constraint branch_fk1;
 
+/* Delete the default stuff */
+alter table Manager disable constraint manager_fk1;
+alter table Employee disable constraint emp_fk1;
+
+delete from branch where id = 0;
+delete from manager where id=0;
+delete from employee where id =0;
+
+alter table Manager enable constraint manager_fk1;
+alter table Employee enable constraint emp_fk1;
+
 /* 5 Branches, 3 states 
  * 
  * Per branch:
