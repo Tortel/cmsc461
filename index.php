@@ -8,10 +8,9 @@ head('Welcome');
 
 $db = dbConnect();
 
-startPost('Welcome to Mars Realty', 'November 25, 2011');
+startPost('Welcome to Mars Realty');
 ?>
-<p> Welcome to Mars Realty! This will be more complete as I actually do it!</p>
-<a href="projQueries.php">Project Queries</a>
+<p> Welcome to Mars Realty!</p>
 <?php
 endPost();
 
