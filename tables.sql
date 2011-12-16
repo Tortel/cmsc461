@@ -235,9 +235,6 @@ create or replace trigger check_supervisor
             RAISE_APPLICATION_ERROR(-20000, 'Supervisor can only supervise 12 associates');
          end if;
       end if;
-   EXCEPTION
-      when VALUE_ERROR then
-         dbms_output.put_line('Value_error raised');
    END;
 /
 
@@ -298,6 +295,9 @@ create or replace trigger checkViewing
       if('select count(id) from viewing where client = :NEW.client and propertyId = :NEW.propertyId and viewDate = :NEW.viewDate' > '0') then
          RAISE_APPLICATION_ERROR(-20000, 'Can only view a property once per day');
       end if;
+   EXCEPTION
+      when VALUE_ERROR then
+         dbms_output.put_line('Value_error raised');
    END;
 /
 
