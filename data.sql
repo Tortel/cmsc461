@@ -1,6 +1,10 @@
 /* Disable FKs between branch/manager */
 alter table Branch disable constraint branch_fk1;
 
+delete from employee where branch = 0;
+delete from Branch where id = 0;
+delete from manager where branch = 0;
+
 /* 5 Branches, 3 states 
  * 
  * Per branch:
@@ -77,9 +81,11 @@ insert into viewing (id, client, associate, propertyId, viewDate, comments) valu
    (key_viewing.nextval, 2, 3, 1, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'This is a nice place!');
 
 
+/* *************************************************************************************************** */
+
 /* Branch 2 - Baltimore, MD */
 insert into Branch (id, street, city, state, zip, phone, fax, manager) values
-   (2, '402 W Pratt St', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 1);
+   (2, '402 W Pratt St', 'Baltimore', 'MD', '21250', '4100000000', '4100000000', 4);
 
 /* Employees */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
@@ -139,6 +145,74 @@ insert into Advertisement (id, property, printDate, cost, newspaperId) values
 /* Viewing */
 insert into viewing (id, client, associate, propertyId, viewDate, comments) values
    (key_viewing.nextval, 6, 6, 6, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'This is a really nice place!');
+
+
+/* *************************************************************************************************** */
+
+/* Branch 3 - Columbia, MD */
+insert into Branch (id, street, city, state, zip, phone, fax, manager) values
+   (3, '402 W Cross Fox Lane', 'Columbia', 'MD', '21045', '4100000000', '4100000000', 7);
+
+/* Employees */
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (7, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (8, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (9, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 2);
+
+/* Give them positions */
+insert into Manager (id, begin, bonus) values (4, CURRENT_DATE, 500);
+insert into Supervisor (id) values (5);
+insert into Associate (id, supervisor) values (6, 5);
+
+/* Owners */
+insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
+   (5, 'Columbia Private Owner', '543 West Street', 'Columbia', 'MD', '21045', '4100000000', '4100000000', 'N');
+insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
+   (6, 'Columbia Business Owner', '345 East Street', 'Columbia', 'MD', '21045', '4100000000', '4100000000', 'Y');
+insert into Business (id, type, contactName) values
+   (6, 'Apartment Business', 'George Winters');
+
+/* Properties */
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (11, '403 W Cross Fox Lane', 'Columbia', 'MD', '21045', 0, 2, 2, 700, 900, 13, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 700, 1100, 9, 6);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (12, '404 W Cross Fox Lane', 'Columbia', 'MD', '21045', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 9, 5);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (13, '405 E Cross Fox Lane', 'Columbia', 'MD', '21045', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 9, 6);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (14, '406 E Cross Fox Lane', 'Columbia', 'MD', '21045', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 9, 5);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (15, '407 S Cross Fox Lane', 'Columbia', 'MD', '21045', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 9, 6);
+
+/* Clients */
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (9, '200 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 1', 'Maryland', 2, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (10, '201 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 2', 'Maryland', 2, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (11, '202 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 3', 'Maryland', 2, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (12, '203 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 4', 'Maryland', 2, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
+
+/* Leases */
+insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
+   (5, 900, 100, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2011', 'MM.DD.YYYY'), 10, 11, 9);
+insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
+   (6, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2012', 'MM.DD.YYYY'), 11, 13, 9);
+
+/* Advertisement */
+/*
+insert into Newspaper (id, street, city, state, zip, name, phone, fax, contactName) values
+   (2, '5421 Business Parkway', 'Columbia', 'MD', '21045', 'The Sun', '4100000000', '4100000000', 'J Jameson');
+*/
+insert into Advertisement (id, property, printDate, cost, newspaperId) values
+   (key_ad.nextval, 15, CURRENT_DATE, 210, 2);
+
+/* Viewing */
+insert into viewing (id, client, associate, propertyId, viewDate, comments) values
+   (key_viewing.nextval, 10, 9, 13, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'This sucks!');
 
 /* Re-enable the FKs */
 alter table Branch enable constraint branch_fk1;
