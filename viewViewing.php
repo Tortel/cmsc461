@@ -55,6 +55,10 @@ if((!$id && $id != 0) || !is_numeric($id)){
          <td><a href="viewProperty.php?id=<?php echo $row[2] ?>">Property <?php echo $row[2] ?></a></td>
       </tr>
       <tr>
+         <td>Date:</td>
+         <td><?php echo $row[3] ?></td>
+      </tr>
+      <tr>
          <td>Comments:</td>
          <td><?php echo nl2br($row[4]); ?></td>
       </tr>

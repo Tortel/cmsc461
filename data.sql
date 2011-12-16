@@ -207,7 +207,7 @@ insert into Client (id, street, city, state, zip, firstname, lastName, branch, p
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
    (5, 900, 100, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2011', 'MM.DD.YYYY'), 10, 11, 9);
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
-   (6, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2012', 'MM.DD.YYYY'), 11, 13, 9);
+   (6, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('07.10.2012', 'MM.DD.YYYY'), 11, 13, 9);
 
 /* Advertisement */
 /*
@@ -340,7 +340,7 @@ insert into Client (id, street, city, state, zip, firstname, lastName, branch, p
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
    (9, 900, 100, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2011', 'MM.DD.YYYY'), 17, 22, 15);
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
-   (10, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2012', 'MM.DD.YYYY'), 18, 23, 15);
+   (10, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('05.10.2012', 'MM.DD.YYYY'), 18, 23, 15);
 
 /* Advertisement */
 insert into Newspaper (id, street, city, state, zip, name, phone, fax, contactName) values
