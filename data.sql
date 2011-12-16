@@ -21,9 +21,9 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
    (1, 'Illinois', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Normal', 'IL', '61761', 70000, 1);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (2, 'Illinois', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Normal', 'IL', '61761', 70000, 1);
+   (2, 'Illinois', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Normal', 'IL', '61761', 50000, 1);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (3, 'Illinois', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Normal', 'IL', '61761', 70000, 1);
+   (3, 'Illinois', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Normal', 'IL', '61761', 30000, 1);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (1, CURRENT_DATE, 500);
@@ -87,9 +87,9 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
    (4, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (5, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
+   (5, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 50000, 2);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (6, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 70000, 2);
+   (6, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Baltimore', 'MD', '21250', 30000, 2);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (4, CURRENT_DATE, 500);
@@ -153,9 +153,9 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
    (7, 'Columbia', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (8, 'Columbia', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
+   (8, 'Columbia', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 50000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (9, 'Columbia', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
+   (9, 'Columbia', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 30000, 3);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (7, CURRENT_DATE, 500);
@@ -184,13 +184,13 @@ insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, s
 
 /* Clients */
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (9, '200 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 1', 'Columbia', 2, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
+   (9, '200 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 1', 'Columbia', 2, '4100000000', '4100000000', 0, 1500, 9, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (10, '201 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 2', 'Columbia', 2, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
+   (10, '201 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 2', 'Columbia', 2, '4100000000', '4100000000', 1, 1200, 9, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (11, '202 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 3', 'Columbia', 2, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
+   (11, '202 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 3', 'Columbia', 2, '4100000000', '4100000000', 2, 900, 9, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (12, '203 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 4', 'Columbia', 2, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
+   (12, '203 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 4', 'Columbia', 2, '4100000000', '4100000000', 0, 2000, 9, CURRENT_DATE);
 
 /* Leases */
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
@@ -209,6 +209,76 @@ insert into Advertisement (id, property, printDate, cost, newspaperId) values
 /* Viewing */
 insert into viewing (id, client, associate, propertyId, viewDate, comments) values
    (key_viewing.nextval, 10, 9, 13, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'This sucks!');
+
+
+/* *************************************************************************************************** */
+
+/* Branch 4 - Apple Valley, MN */
+insert into Branch (id, street, city, state, zip, phone, fax, manager) values
+   (4, '402 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 7);
+
+/* Employees */
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (10, 'Apple Valley', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 70000, 4);
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (11, 'Apple Valley', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 50000, 4);
+insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
+   (12, 'Apple Valley', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 30000, 4);
+
+/* Give them positions */
+insert into Manager (id, begin, bonus) values (10, CURRENT_DATE, 500);
+insert into Supervisor (id) values (11);
+insert into Associate (id, supervisor) values (12, 11);
+
+/* Owners */
+insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
+   (7, 'Apple Valley Private Owner', '543 West Street', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 'N');
+insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
+   (8, 'Apple Valley Business Owner', '345 East Street', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 'Y');
+insert into Business (id, type, contactName) values
+   (8, 'Apartment Business', 'George Winters');
+
+/* Properties */
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (16, '403 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 0, 2, 2, 700, 900, 13, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 700, 1100, 12, 7);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (17, '404 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 12, 8);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (18, '405 E Pilot Knob Road', 'Apple Valley', 'MN', '55124', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 12, 7);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (19, '406 E Pilot Knob Road', 'Apple Valley', 'MN', '55124', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 12, 8);
+insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
+   (20, '407 S Pilot Knob Road', 'Apple Valley', 'MN', '55124', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 12, 7);
+
+/* Clients */
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (13, '200 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 1', 'Apple Valley', 2, '4100000000', '4100000000', 0, 1500, 12, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (14, '201 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 2', 'Apple Valley', 2, '4100000000', '4100000000', 1, 1200, 12, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (15, '202 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 3', 'Apple Valley', 2, '4100000000', '4100000000', 2, 900, 12, CURRENT_DATE);
+insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
+   (16, '203 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 4', 'Apple Valley', 2, '4100000000', '4100000000', 0, 2000, 12, CURRENT_DATE);
+
+/* Leases */
+insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
+   (7, 900, 100, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2011', 'MM.DD.YYYY'), 10, 11, 9);
+insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
+   (8, 2500, 500, TO_DATE('12.10.2010', 'MM.DD.YYYY'), TO_DATE('12.10.2012', 'MM.DD.YYYY'), 11, 13, 9);
+
+/* Advertisement */
+insert into Newspaper (id, street, city, state, zip, name, phone, fax, contactName) values
+   (3, '5421 Business Parkway', 'Apple Valley', 'MN', '55124', 'The Sun', '4100000000', '4100000000', 'J Jameson');
+insert into Advertisement (id, property, printDate, cost, newspaperId) values
+   (key_ad.nextval, 15, CURRENT_DATE, 210, 3);
+
+/* Viewing */
+insert into viewing (id, client, associate, propertyId, viewDate, comments) values
+   (key_viewing.nextval, 14, 12, 17, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'Meh.');
+
+
+
+
 
 /* Re-enable the FKs */
 alter table Branch enable constraint branch_fk1;

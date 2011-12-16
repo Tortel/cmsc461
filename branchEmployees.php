@@ -40,7 +40,7 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
    
    //Name, position, salary ordered by name
    
-   $employees = dbExec($db, "select id, lastName, firstName, salary from employee where branch = $branch");
+   $employees = dbExec($db, "select id, lastName, firstName, salary from employee where branch = $branch order by lastName asc");
    
    ?>
    <table>
