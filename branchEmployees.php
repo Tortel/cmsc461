@@ -42,10 +42,36 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
    
    echo 'Need to finish. How to get position?';
    
+   $employees = dbExec($db, "select id, lastName, firstName, salary from employee where branch = $branch");
    
+   ?>
+   <table>
+   <tr>
+      <td>Name</td>
+      <td>Position</td>
+      <td>Salary</td>
+   </tr>
+   <?php
    
+   while( ($row = dbFetchRow($employees)) ){
+      echo '<tr>'
+      echo "<td>$row[1], $row[2]</td>";
+      $statusQuery = dbExec($db, "select count(id) from manager where id = $row[0]");
+      $manager = dbFetchRow($statusQuery);
+      $statusQuery = dbExec($db, "select count(id) from supervisor where id = $row[0]");
+      $supervisor = dbFetchRow($statusQuery);
+      if($manager[0]){
+         echo '<td>Branch Manager</td>';
+      } else if($supervisor[0]){
+         echo '<td>Supervisor</td>';
+      } else {
+         echo '<td>Associate</td>';
+      }
+      echo "<td>\$$row[3]</td>";
+      echo '</tr>';
+   }
    
-   
+   echo '</table>';
    
    endPost();
    
