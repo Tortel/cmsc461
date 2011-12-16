@@ -37,10 +37,8 @@ while( ($row = dbFetchRow($query)) ){
    <?php
 }
 
-   endPost();
-   
-   foot();
-   
-}
+endPost();
+
+foot();
 
 ?>

@@ -89,6 +89,8 @@ if((!$branch && $branch != 0) || !is_numeric($branch)){
             <td><a href="viewBranch.php?id=<?php echo $row[12]; ?>">Branch <?php echo $row[12]; ?></a></td>
          </tr>
       </table>
+      <br />
+      <br />
       <?php
    }
    

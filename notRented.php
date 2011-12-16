@@ -75,3 +75,8 @@ while( ($row = dbFetchRow($query)) ){
    <br />
    <?php
 }
+
+endPost();
+
+foot();
+?>

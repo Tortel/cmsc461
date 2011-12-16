@@ -42,6 +42,8 @@ while( ($row = dbFetchRow($query)) ){
          <td><a href="viewOwner.php?id=<?php echo $row[10]; ?>"><?php echo $row[9]; ?></a></td>
       </tr>
    </table>
+   <br />
+   <br />
    <?php
 }
 

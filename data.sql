@@ -151,11 +151,11 @@ insert into Branch (id, street, city, state, zip, phone, fax, manager) values
 
 /* Employees */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (7, 'Maryland', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
+   (7, 'Columbia', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (8, 'Maryland', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
+   (8, 'Columbia', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (9, 'Maryland', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
+   (9, 'Columbia', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Columbia', 'MD', '21045', 70000, 3);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (7, CURRENT_DATE, 500);
@@ -184,13 +184,13 @@ insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, s
 
 /* Clients */
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (9, '200 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 1', 'Maryland', 2, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
+   (9, '200 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 1', 'Columbia', 2, '4100000000', '4100000000', 0, 1500, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (10, '201 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 2', 'Maryland', 2, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
+   (10, '201 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 2', 'Columbia', 2, '4100000000', '4100000000', 1, 1200, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (11, '202 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 3', 'Maryland', 2, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
+   (11, '202 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 3', 'Columbia', 2, '4100000000', '4100000000', 2, 900, 6, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (12, '203 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 4', 'Maryland', 2, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
+   (12, '203 W Cross Fox Lane', 'Columbia', 'MD', '21045', 'Client 4', 'Columbia', 2, '4100000000', '4100000000', 0, 2000, 6, CURRENT_DATE);
 
 /* Leases */
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
