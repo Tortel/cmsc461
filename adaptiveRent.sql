@@ -10,6 +10,8 @@ create or replace trigger adaptiveRentIncrease
    END;
 /
 
+/*
+Disabled until working
 create or replace trigger adaptiverentDecrease
    after insert or update on Viewing
    BEGIN
@@ -19,6 +21,8 @@ create or replace trigger adaptiverentDecrease
       update property set rent = minRent if rent < minRent;
    END;
 /
+
+*/
 
 /*
       update (Select rent from Property as P where (select count(viewing.id) from viewing where (propertyId = P.id and viewDate > P.lastupdate) < select avg(count(viewing.id)) from viewing, property where propertyid = property.id and viewdate > lastUpdate group by viewing.propertyid ) ) set rent = 0.95*rent; 
