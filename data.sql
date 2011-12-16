@@ -289,17 +289,17 @@ insert into viewing (id, client, associate, propertyId, viewDate, comments) valu
 
 /* *************************************************************************************************** */
 
-/* Branch 5 - Apple Valley, MN */
+/* Branch 5 - Fairfax, VA */
 insert into Branch (id, street, city, state, zip, phone, fax, manager) values
-   (5, '402 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 13);
+   (5, '402 W Patriot Circle', 'Fairfax', 'VA', '22030', '4100000000', '4100000000', 13);
 
 /* Employees */
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (13, 'Apple Valley', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 70000, 5);
+   (13, 'Fairfax', 'Manager', 'M', CURRENT_DATE, '123 Main Street', 'Fairfax', 'VA', '22030', 70000, 5);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (14, 'Apple Valley', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 50000, 5);
+   (14, 'Fairfax', 'Supervisor', 'M', CURRENT_DATE, '123 Main Street', 'Fairfax', 'VA', '22030', 50000, 5);
 insert into Employee (id, firstName, lastName, sex, birthday, street, city, state, zip, salary, branch) values
-   (15, 'Apple Valley', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Apple Valley', 'MN', '55124', 30000, 5);
+   (15, 'Fairfax', 'Associate', 'M', CURRENT_DATE, '123 Main Street', 'Fairfax', 'VA', '22030', 30000, 5);
 
 /* Give them positions */
 insert into Manager (id, begin, bonus) values (13, CURRENT_DATE, 500);
@@ -308,33 +308,33 @@ insert into Associate (id, supervisor) values (15, 14);
 
 /* Owners */
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
-   (9, 'Apple Valley Private Owner', '543 West Street', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 'N');
+   (9, 'Fairfax Private Owner', '543 West Street', 'Fairfax', 'VA', '22030', '4100000000', '4100000000', 'N');
 insert into Owner (id, name, street, city, state, zip, phone, fax, isBusiness) values
-   (10, 'Apple Valley Business Owner', '345 East Street', 'Apple Valley', 'MN', '55124', '4100000000', '4100000000', 'Y');
+   (10, 'Fairfax Business Owner', '345 East Street', 'Fairfax', 'VA', '22030', '4100000000', '4100000000', 'Y');
 insert into Business (id, type, contactName) values
    (10, 'Apartment Business', 'George Winters');
 
 /* Properties */
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (21, '403 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 0, 2, 2, 700, 900, 13, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 700, 1100, 15, 7);
+   (21, '403 W Patriot Circle', 'Fairfax', 'VA', '22030', 0, 2, 2, 700, 900, 13, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 700, 1100, 15, 7);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (22, '404 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 15, 8);
+   (22, '404 W Patriot Circle', 'Fairfax', 'VA', '22030', 1, 4, 3, 1300, 1000, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1300, 15, 8);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (23, '405 E Pilot Knob Road', 'Apple Valley', 'MN', '55124', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 15, 7);
+   (23, '405 E Patriot Circle', 'Fairfax', 'VA', '22030', 2, 5, 4, 2500, 1700, 10, 'Y', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 1700, 300, 15, 7);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (24, '406 E Pilot Knob Road', 'Apple Valley', 'MN', '55124', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 15, 8);
+   (24, '406 E Patriot Circle', 'Fairfax', 'VA', '22030', 1, 3, 3, 1200, 900, 11, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 900, 1400, 15, 8);
 insert into Property (id, street, city, state, zip, type, bedrooms, bathrooms, sqFoot, rent, fee, rented, posted, lastupdate, minRent, maxRent, associate, owner) values
-   (25, '407 S Pilot Knob Road', 'Apple Valley', 'MN', '55124', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 15, 7);
+   (25, '407 S Patriot Circle', 'Fairfax', 'VA', '22030', 0, 1, 1, 500, 600, 15, 'N', TO_DATE('11.15.2010', 'MM.DD.YYYY'), CURRENT_DATE, 500, 800, 15, 7);
 
 /* Clients */
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (17, '200 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 1', 'Apple Valley', 2, '4100000000', '4100000000', 0, 1500, 15, CURRENT_DATE);
+   (17, '200 W Patriot Circle', 'Fairfax', 'VA', '22030', 'Client 1', 'Fairfax', 2, '4100000000', '4100000000', 0, 1500, 15, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (18, '201 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 2', 'Apple Valley', 2, '4100000000', '4100000000', 1, 1200, 15, CURRENT_DATE);
+   (18, '201 W Patriot Circle', 'Fairfax', 'VA', '22030', 'Client 2', 'Fairfax', 2, '4100000000', '4100000000', 1, 1200, 15, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (19, '202 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 3', 'Apple Valley', 2, '4100000000', '4100000000', 2, 900, 15, CURRENT_DATE);
+   (19, '202 W Patriot Circle', 'Fairfax', 'VA', '22030', 'Client 3', 'Fairfax', 2, '4100000000', '4100000000', 2, 900, 15, CURRENT_DATE);
 insert into Client (id, street, city, state, zip, firstname, lastName, branch, phone, workPhone, propertyType, maxRent, associate, registerDate) values
-   (20, '203 W Pilot Knob Road', 'Apple Valley', 'MN', '55124', 'Client 4', 'Apple Valley', 2, '4100000000', '4100000000', 0, 2000, 15, CURRENT_DATE);
+   (20, '203 W Patriot Circle', 'Fairfax', 'VA', '22030', 'Client 4', 'Fairfax', 2, '4100000000', '4100000000', 0, 2000, 15, CURRENT_DATE);
 
 /* Leases */
 insert into Lease (id, rent, deposit, startDate, endDate, client, property, associate) values
@@ -344,14 +344,13 @@ insert into Lease (id, rent, deposit, startDate, endDate, client, property, asso
 
 /* Advertisement */
 insert into Newspaper (id, street, city, state, zip, name, phone, fax, contactName) values
-   (4, '5421 Business Parkway', 'Apple Valley', 'MN', '55124', 'The Sun', '4100000000', '4100000000', 'J Jameson');
+   (4, '5421 Business Parkway', 'Fairfax', 'VA', '22030', 'The Flyer', '4100000000', '4100000000', 'J Jameson');
 insert into Advertisement (id, property, printDate, cost, newspaperId) values
    (key_ad.nextval, 25, CURRENT_DATE, 210, 4);
 
 /* Viewing */
 insert into viewing (id, client, associate, propertyId, viewDate, comments) values
    (key_viewing.nextval, 18, 15, 22, TO_DATE('11.15.2011', 'MM.DD.YYYY'), 'Not bad.');
-
 
 
 /* Re-enable the FKs */
