@@ -2,6 +2,8 @@
 
 require_once('include/include.php');
 
+check();
+
 head('Welcome');
 
 $db = dbConnect();

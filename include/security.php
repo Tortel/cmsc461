@@ -1,8 +1,10 @@
 <?php
 session_start();
- 
-if(!session_is_registered(loggedIn)){
-  header("location:login.php");
+
+function check(){
+   if(!session_is_registered(loggedIn)){
+     header("location:login.php");
+   }
 }
 
 function login($user, $pass){

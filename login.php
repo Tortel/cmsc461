@@ -2,6 +2,13 @@
 
 include('include/include.php');
 
+if($_POST['username'] && $_POST['password']){
+   if(login($_POST['username'], $_POST['password'])){
+      header('Location: index.php');
+   }
+}
+
+
 head('Log in');
 
 startPost('Log in');
