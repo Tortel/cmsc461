@@ -34,9 +34,11 @@ startPost('Total Monthly Income');
    <td>Total Salaries:</td>
    <td>$
    <?php
-      $query = dbExec($db, 'select sum(salary), sum(bonus) from employee, manager');
+      $query = dbExec($db, 'select sum(salary) from employee');
+      $query2 = dbExec($db, 'select sum(bonus) from manager');
       $row = dbFetchRow($query);
-      echo $row[0] + $row[1];
+      $row2 = dbFetchrow($query2);
+      echo $row[0] + $row2[0];
    ?>
    </td>
 </tr>
