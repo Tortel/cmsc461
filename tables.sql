@@ -302,6 +302,24 @@ create or replace trigger adaptiveRentIncrease
    END;
 /
 
+/* Managers Bonus */
+create or replace trigger managerBonus
+   before insert or update on Lease
+   for each row
+   BEGIN
+      update manager set bonus = bonus + .2 *:NEW.rent where manager.id in (select branch.manager from branch, employee where employee.id = :NEW.associate and branch.id = employee.branch);
+   END;
+/
+
+create or replace trigger decreaseBonus
+   before delete on Lease
+   for each row
+   BEGIN
+      update manager set bonus = bonus - .2 *:OLD.rent where manager.id in (select branch.manager from branch, employee where employee.id = :OLD.associate and branch.id = employee.branch);
+   END;
+/
+
+
 /* No freaking auto-increment primary key? Are you kidding? */
 drop sequence key_branch;
 CREATE SEQUENCE key_branch
